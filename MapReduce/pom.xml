@@ -13,61 +13,40 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<hadoop.version>2.5.1</hadoop.version>
 	</properties>
-
 	<dependencies>
+		<!-- Hadoop main client artifact -->
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-client</artifactId>
+			<version>${hadoop.version}</version>
+		</dependency>
+		<!-- Unit test artifacts -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
+			<version>4.11</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.mrunit</groupId>
 			<artifactId>mrunit</artifactId>
 			<version>1.1.0</version>
-			<scope>test</scope>
 			<classifier>hadoop2</classifier>
+			<!-- <scope>test</scope> -->
 		</dependency>
-
+		<!-- Hadoop test artifact for running mini clusters -->
 		<dependency>
 			<groupId>org.apache.hadoop</groupId>
-			<artifactId>hadoop-core</artifactId>
-			<version>1.2.0</version>
-			<exclusions>
-				<exclusion>
-					<artifactId>jdk.tools</artifactId>
-					<groupId>jdk.tools</groupId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.hadoop</groupId>
-			<artifactId>hadoop-client</artifactId>
-			<version>2.2.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.hadoop</groupId>
-			<artifactId>hadoop-common</artifactId>
-			<version>2.7.0</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.hadoop</groupId>
-			<artifactId>hadoop-mapreduce-client-core</artifactId>
-			<version>2.2.0</version>
-			<exclusions>
-				<exclusion>
-					<artifactId>jdk.tools</artifactId>
-					<groupId>jdk.tools</groupId>
-				</exclusion>
-			</exclusions>
+			<artifactId>hadoop-minicluster</artifactId>
+			<version>${hadoop.version}</version>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.hive</groupId>
 			<artifactId>hive-exec</artifactId>
 			<version>2.0.0</version>
 		</dependency>
-
 	</dependencies>
 </project>

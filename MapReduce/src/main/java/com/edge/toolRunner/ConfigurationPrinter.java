@@ -1,7 +1,8 @@
 package com.edge.toolRunner;
 
 /*These are properties which  are already set
- *To set a new one, or to override one use -D option in
+ *To set a new one, or to override one 
+ *in runtime using -D option in 
  * Run as>Run config>Progam arg 
  * -D color=yellow
  * -D io.sort.mb=999
@@ -31,6 +32,8 @@ Configuration.addDefaultResource("yarn-default.xml");
 Configuration.addDefaultResource("yarn-site.xml");
 Configuration.addDefaultResource("mapred-default.xml");
 Configuration.addDefaultResource("mapred-site.xml");
+
+
 }
 public int run(String[] args) throws Exception {
 Configuration conf = getConf();

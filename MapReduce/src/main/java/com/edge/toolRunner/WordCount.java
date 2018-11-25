@@ -48,7 +48,7 @@ public class WordCount extends Configured implements Tool {
 		FileInputFormat.addInputPath(job, new Path(args[0]));
 		Path outputPath = new Path(args[1]);
 		FileSystem fs = FileSystem.get(new URI(outputPath.toString()), conf);
-		fs.delete(outputPath);
+		fs.delete(outputPath,true);
 		FileOutputFormat.setOutputPath(job, outputPath);
 		return job.waitForCompletion(true) ? 0 : 1;
 	}
