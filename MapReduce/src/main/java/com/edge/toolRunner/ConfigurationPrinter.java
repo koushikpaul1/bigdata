@@ -32,8 +32,6 @@ Configuration.addDefaultResource("yarn-default.xml");
 Configuration.addDefaultResource("yarn-site.xml");
 Configuration.addDefaultResource("mapred-default.xml");
 Configuration.addDefaultResource("mapred-site.xml");
-
-
 }
 public int run(String[] args) throws Exception {
 Configuration conf = getConf();

@@ -54,7 +54,12 @@ public class WordCount extends Configured implements Tool {
 
 
 class WordCountMapper extends Mapper<LongWritable, Text, Text, NullWritable> {	
+	enum WordCount {
+		COUNT
+	}
     protected void map(LongWritable k1, Text v1, Context context) throws IOException, InterruptedException { 
+    	
+    	context.getCounter(WordCount.COUNT).increment(1);;  
     		context.write( v1,NullWritable.get());    	   	
     }
 }

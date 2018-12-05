@@ -1,4 +1,4 @@
-package com.edge.fileMerge.sequenceFile;
+package com.edge.basic;
 // == MinimalMapReduce The simplest possible MapReduce driver, which uses the defaults
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.fs.Path;
