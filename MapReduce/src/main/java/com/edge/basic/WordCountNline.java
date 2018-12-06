@@ -12,7 +12,7 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.log4j.PropertyConfigurator;
 
-public class WordCount {
+public class WordCountNline {
     public static void main(String[] args) throws Exception { 
     	
     	String log4jConfPath = "log4j.properties";
@@ -24,7 +24,7 @@ public class WordCount {
 		}
 		Job job = Job.getInstance(conf, "word count");
 		
-		job.setJarByClass(WordCount.class);
+		job.setJarByClass(WordCountNline.class);
 		job.setMapperClass(Map.class);
 		job.setCombinerClass(Reduce.class);
 		job.setReducerClass(Reduce.class);
@@ -40,7 +40,7 @@ public class WordCount {
 		
 		FileInputFormat.addInputPath(job, new Path(args[0]));
 		FileOutputFormat.setOutputPath(job, outputPath);
-		System.out.println("Number of map tasks "+conf.get("mapred.map.tasks"));
+		
 		System.exit(job.waitForCompletion(true) ? 0 : 1);
     }
     
