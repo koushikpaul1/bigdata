@@ -9,7 +9,10 @@ import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.input.NLineInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+import org.apache.hadoop.mapreduce.lib.output.LazyOutputFormat;
+import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 import org.apache.log4j.PropertyConfigurator;
 
 public class WordCountNline {
@@ -32,14 +35,23 @@ public class WordCountNline {
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(IntWritable.class);
 		
-		
 		Path outputPath = new Path(args[1]);
 		FileSystem fs = FileSystem.get(new URI(outputPath.toString()), conf);
 		fs.delete(outputPath,true);
 		
+        job.setInputFormatClass(NLineInputFormat.class);
+        NLineInputFormat.addInputPath(job, new Path(args[0]));
+        job.getConfiguration().setInt("mapreduce.input.lineinputformat.linespermap", 4);
+
+        LazyOutputFormat.setOutputFormatClass(job, TextOutputFormat.class);
+        FileOutputFormat.setOutputPath(job, new Path(args[1]));
+
 		
-		FileInputFormat.addInputPath(job, new Path(args[0]));
-		FileOutputFormat.setOutputPath(job, outputPath);
+	
+		
+		
+		//FileInputFormat.addInputPath(job, new Path(args[0]));
+		//FileOutputFormat.setOutputPath(job, outputPath);
 		
 		System.exit(job.waitForCompletion(true) ? 0 : 1);
     }
