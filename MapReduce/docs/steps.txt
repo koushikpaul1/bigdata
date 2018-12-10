@@ -4,5 +4,5 @@ Run As> Run Configurations..>
 	MainClass-> com.edge.basic.WordCount
 	Arguments-> data/smallFiles/  output/wordcount
 	VM Arguments ->
-	
-	
+with -D option changing the number of reduce on the fly	
+hadoop jar hadoop-examples.jar SmallFilesToSequenceFileConverter -conf conf/hadoop-localhost.xml -D mapreduce.job.reduces=2 input/smallfiles output	

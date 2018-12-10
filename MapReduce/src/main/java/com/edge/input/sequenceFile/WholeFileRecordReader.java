@@ -1,4 +1,4 @@
-package com.edge.fileMerge.sequenceFile;
+package com.edge.input.sequenceFile;
 
 //cc WholeFileRecordReader The RecordReader used by WholeFileInputFormat for reading a whole file as a record
 import java.io.IOException;
