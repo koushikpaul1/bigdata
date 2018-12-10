@@ -1,3 +1,7 @@
+/**
+	 * The Driver class is implementing Tool interface The Tool interface has three abstract methods which need to be defined
+	*/
+
 Running in LocalMode in an Linux/Unix environment from eclipse.
 Run As> Run Configurations..>
 	Project-> MapReduce,

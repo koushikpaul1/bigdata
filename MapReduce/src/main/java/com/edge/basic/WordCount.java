@@ -41,7 +41,6 @@ public class WordCount {
 
 		FileInputFormat.addInputPath(job, new Path(args[0]));
 		FileOutputFormat.setOutputPath(job, outputPath);
-		System.out.println("Number of map tasks " + conf.get("mapred.map.tasks"));
 		System.exit(job.waitForCompletion(true) ? 0 : 1);
 	}
 
