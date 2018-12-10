@@ -47,8 +47,7 @@ import org.apache.hadoop.util.Tool;
   }
 
   public static void printUsage(Tool tool, String extraArgsUsage) {
-    System.err.printf("Usage: %s [genericOptions] %s\n\n",
-        tool.getClass().getSimpleName(), extraArgsUsage);
+    System.err.printf("Usage: %s [genericOptions] %s\n\n",tool.getClass().getSimpleName(), extraArgsUsage);
     GenericOptionsParser.printGenericCommandUsage(System.err);
   }
   // ^^ JobBuilder

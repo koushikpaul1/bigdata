@@ -14,7 +14,10 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.output.LazyOutputFormat;
 import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 import org.apache.log4j.PropertyConfigurator;
-
+//Run As> Run Configurations..>
+//Project-> MapReduce,
+//MainClass-> com.edge.basic.WordCountNline
+//data/wordCount  output/WordCountNline 
 public class WordCountNline {
     public static void main(String[] args) throws Exception { 
     	

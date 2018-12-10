@@ -11,7 +11,10 @@ import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.log4j.PropertyConfigurator;
-
+//Run As> Run Configurations..>
+//Project-> MapReduce,
+//MainClass-> com.edge.basic.WordCount
+//data/wordCount  output/wordCount 
 public class WordCount {
 	public static void main(String[] args) throws Exception {
 
