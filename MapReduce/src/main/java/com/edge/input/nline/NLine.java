@@ -1,4 +1,4 @@
-package com.edge.nline;
+package com.edge.input.nline;
 
 /*With TextInputFormat and KeyValueTextInputFormat, each mapper receives a variable
 number of lines of input. The number depends on the size of the split and the length of the

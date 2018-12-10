@@ -1,0 +1,8 @@
+Running in LocalMode in an Linux/Unix environment from eclipse.
+Run As> Run Configurations..>
+	Project-> MapReduce,
+	MainClass-> com.edge.basic.WordCount
+	Arguments-> data/smallFiles/  output/wordcount
+	VM Arguments ->
+	
+	

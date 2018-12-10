@@ -1,4 +1,4 @@
-package com.edge.nline;
+package com.edge.input.nline;
 
 import java.net.URI;
 
