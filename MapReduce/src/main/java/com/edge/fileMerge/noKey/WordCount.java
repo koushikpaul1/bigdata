@@ -37,8 +37,8 @@ public class WordCount extends Configured implements Tool {
 	  public int run(String[] args) throws Exception {    	
     	Configuration conf = new Configuration();
     	
-    	
-		Job job = new Job(conf, "word count");
+    	Job job = Job.getInstance(conf, "word count");
+		//Job job = new Job(conf, "word count");
 		job.setJarByClass(WordCount.class);
 		job.setMapperClass(WordCountMapper.class);
 		job.setReducerClass(WordCountReducer.class);

@@ -1,4 +1,4 @@
-package com.edge.multipleOutputFile;
+package com.edge.output.multipleOutputs;
 
 
 

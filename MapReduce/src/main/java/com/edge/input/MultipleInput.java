@@ -12,7 +12,6 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
-import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.input.KeyValueTextInputFormat;
 import org.apache.hadoop.mapreduce.lib.input.MultipleInputs;
 import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
@@ -44,7 +43,7 @@ public class MultipleInput extends Configured implements Tool {
 
 	public int run(String[] args) throws Exception {
 		Configuration conf = this.getConf();
-		//conf.set("key.value.separator.in.input.line", ",");
+		conf.set("key.value.separator.in.input.line", ",");
 		
 		
 		Job job = Job.getInstance(conf, "MultipleInput");
@@ -71,7 +70,7 @@ public class MultipleInput extends Configured implements Tool {
 }
 
 class MapKeyValueTextInput extends Mapper<Text, Text, Text, Text> {
-	public void map(Text k1, Text v1, Context context) throws IOException, InterruptedException {
+	public void map(Text k1, Text v1, Context context) throws IOException, 		InterruptedException {
 		context.write(k1, v1);
 	}
 }
