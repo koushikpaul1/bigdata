@@ -14,11 +14,8 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.output.LazyOutputFormat;
 import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 import org.apache.log4j.PropertyConfigurator;
-//Run As> Run Configurations..>
-//Project-> MapReduce,
-//MainClass-> com.edge.basic.WordCountNline
-//data/wordCount  output/WordCountNline 
-public class WordCountNline {
+
+public class DriverNline {
     public static void main(String[] args) throws Exception { 
     	
     	String log4jConfPath = "log4j.properties";
@@ -30,32 +27,32 @@ public class WordCountNline {
 		}
 		Job job = Job.getInstance(conf, "word count");
 		
-		job.setJarByClass(WordCountNline.class);
-		job.setMapperClass(Map.class);
-		job.setCombinerClass(Reduce.class);
-		job.setReducerClass(Reduce.class);
+		job.setJarByClass(DriverNline.class);
+		job.setMapperClass(MapNline.class);
+		//job.setCombinerClass(ReduceNline.class);
+		job.setReducerClass(ReduceNline.class);
 		
-		job.setOutputKeyClass(Text.class);
-		job.setOutputValueClass(IntWritable.class);
+		job.setOutputKeyClass(IntWritable.class);
+		job.setOutputValueClass(Text.class);
 		
 		Path outputPath = new Path(args[1]);
 		FileSystem fs = FileSystem.get(new URI(outputPath.toString()), conf);
 		fs.delete(outputPath,true);
 		
         job.setInputFormatClass(NLineInputFormat.class);
-        //FileOutputFormat.setOutputPath(job, outputPath);
         NLineInputFormat.addInputPath(job, new Path(args[0]));
-        job.getConfiguration().setInt("mapreduce.input.lineinputformat.linespermap", 4);
-		/**
-		 * FileOutputFormat subclasses will create output (part-r-nnnnn) files, even if
-		 * they are empty. Some applications prefer that empty files not be created,
-		 * which is where LazyOutputFormat helps. It is a wrapper output format that
-		 * ensures that the output file is created only when the first record is emitted
-		 * for a given partition.
-		 */
-        //FileInputFormat.addInputPath(job, new Path(args[0]));
-		LazyOutputFormat.setOutputFormatClass(job, TextOutputFormat.class);
-        FileOutputFormat.setOutputPath(job, new Path(args[1]));	
+        job.getConfiguration().setInt("mapreduce.input.lineinputformat.linespermap", 1000);
+
+        LazyOutputFormat.setOutputFormatClass(job, TextOutputFormat.class);
+        FileOutputFormat.setOutputPath(job, new Path(args[1]));
+
+		
+	
+		
+		
+		//FileInputFormat.addInputPath(job, new Path(args[0]));
+		//FileOutputFormat.setOutputPath(job, outputPath);
+		
 		System.exit(job.waitForCompletion(true) ? 0 : 1);
     }
     

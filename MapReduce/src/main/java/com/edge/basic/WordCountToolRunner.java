@@ -20,10 +20,10 @@ import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 import org.apache.log4j.PropertyConfigurator;
 
-//Run As> Run Configurations..>
-//Project-> MapReduce,
-//MainClass-> com.edge.basic.WordCountNline
-// -D LowerLimit=6  -D mapreduce.job.reduces=2 data/wordCount  output/basic/toolRunner <Configuration conf = this.getConf(); this allows to take runtime arg>
+/**Run As> Run Configurations..>
+ * Project-> MapReduce,
+ * MainClass-> com.edge.basic.WordCountNline
+ * -D LowerLimit=6  -D mapreduce.job.reduces=2 data/wordCount  output/basic/toolRunner <Configuration conf = this.getConf(); this allows to take runtime arg>*/
 public class WordCountToolRunner extends Configured implements Tool {
 	/**
 	 * The Driver class is implementing Tool interface The Tool interface has three abstract methods which need to be defined
@@ -34,15 +34,7 @@ public class WordCountToolRunner extends Configured implements Tool {
 		PropertyConfigurator.configure(log4jConfPath);
 		System.exit(ToolRunner.run(new WordCountToolRunner(), args));
 	}
-	/**
-	 *  Here the run method is called with parameters  – 
-	 *  a new Configuration object – this object and its properties will be  shared across all other Classes 
-	 *  and methods as we will observe later.  – an instance of the Driver class, to tell the job where to look for next
-	 *  String arguments which are passed in the main class from the console  (or parameters). These are usually the 
-	 *  input and output paths
-	 *
-	 */
-	
+
 
 	public int run(String[] args) throws Exception {
 		/** Instead of creating a new configuration object, we are retrieving the one created in run method */
@@ -52,8 +44,8 @@ public class WordCountToolRunner extends Configured implements Tool {
 		//Job job = new Job(conf, "WordCountToolRunner");
 		job.setJarByClass(WordCountToolRunner.class);
 		job.setMapperClass(Mapp.class);
-		job.setCombinerClass(Reduce.class);
-		job.setReducerClass(Reduce.class);
+		job.setCombinerClass(Reducee.class);
+		job.setReducerClass(Reducee.class);
 		job.setMapOutputKeyClass(Text.class);
 		job.setMapOutputValueClass(IntWritable.class);
 		job.setOutputKeyClass(Text.class);

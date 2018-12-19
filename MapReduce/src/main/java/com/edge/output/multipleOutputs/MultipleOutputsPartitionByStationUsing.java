@@ -50,9 +50,10 @@ public class MultipleOutputsPartitionByStationUsing extends Configured implement
 				throws IOException, InterruptedException {
 			for (Text value : values) {
 				parser.parse(value);
-				String val = parser.getObservationDate() + " Temp=" + parser.getAirTemperature() + " TempString="
-						+ parser.getAirTemperatureString() + " Quality=" + parser.getQuality();
+				//String basePath = String.format("%s/%s/part",parser.getStationId(), parser.getYear());
+				String val = parser.getObservationDate() + " Temp=" + parser.getAirTemperature() + " TempString="+ parser.getAirTemperatureString() + " Quality=" + parser.getQuality();
 				multipleOutputs.write(new Text(parser.getYear()), new Text(val), key.toString());
+				//multipleOutputs.write(new Text(parser.getYear()), new Text(val), basePath);
 			}
 		}
 
