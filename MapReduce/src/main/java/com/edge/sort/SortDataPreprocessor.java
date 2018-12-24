@@ -1,4 +1,4 @@
-package com.edge.output;
+package com.edge.sort;
 
 import java.io.IOException;
 import java.net.URI;
@@ -17,7 +17,6 @@ import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.output.SequenceFileOutputFormat;
-import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 import org.apache.log4j.PropertyConfigurator;
@@ -52,9 +51,9 @@ public class SortDataPreprocessor extends Configured implements Tool {
 		job.setOutputKeyClass(IntWritable.class);
 		job.setOutputValueClass(Text.class);
 		job.setOutputFormatClass(SequenceFileOutputFormat.class);
-		//SequenceFileOutputFormat.setCompressOutput(job, true);
-		//SequenceFileOutputFormat.setOutputCompressorClass(job, BZip2Codec.class);
-		//SequenceFileOutputFormat.setOutputCompressionType(job, CompressionType.BLOCK);
+		SequenceFileOutputFormat.setCompressOutput(job, true);
+		SequenceFileOutputFormat.setOutputCompressorClass(job, BZip2Codec.class);
+		SequenceFileOutputFormat.setOutputCompressionType(job, CompressionType.BLOCK);
 		FileInputFormat.addInputPath(job, new Path(args[0]));
 		Path outputPath = new Path(args[1]);
 		FileSystem fs = FileSystem.get(new URI(outputPath.toString()), conf);
