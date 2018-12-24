@@ -26,8 +26,8 @@ import org.apache.log4j.PropertyConfigurator;
 /**Run As> Run Configurations..>
 * Project-> MapReduce,
 * MainClass-> com.edge.input.KeyValueTextInput
-* data/KeyValueTextInput output/KeyValueTextInput
-* data/KeyValueTextInputComaSeparated output/KeyValueTextInputComaSeparated
+* data/misc/KeyValueTextInput output/KeyValueTextInput
+* data/misc/KeyValueTextInputComaSeparated output/KeyValueTextInputComaSeparated
 */
 
 public class KeyValueTextInput extends Configured implements Tool {

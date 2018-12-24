@@ -23,7 +23,7 @@ import org.apache.log4j.PropertyConfigurator;
 /**Run As> Run Configurations..>
  * Project-> MapReduce,
  * MainClass-> com.edge.basic.WordCountNline
- * -D LowerLimit=6  -D mapreduce.job.reduces=2 data/wordCount  output/basic/toolRunner <Configuration conf = this.getConf(); this allows to take runtime arg>*/
+ * -D LowerLimit=6  -D mapreduce.job.reduces=2 data/misc/wordCount  output/basic/toolRunner <Configuration conf = this.getConf(); this allows to take runtime arg>*/
 public class WordCountToolRunner extends Configured implements Tool {
 	/**
 	 * The Driver class is implementing Tool interface The Tool interface has three abstract methods which need to be defined

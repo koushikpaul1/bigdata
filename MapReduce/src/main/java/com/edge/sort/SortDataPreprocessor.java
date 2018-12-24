@@ -26,7 +26,7 @@ import com.edge.output.multipleOutputs.NcdcRecordParser;
 /**Run As> Run Configurations..>
  * Project-> MapReduce,
  * MainClass-> com.edge.basic.WordCountNline
- *  data/NCDC output/SortDataPreprocessor*/
+ *  data/misc/NCDC output/SortDataPreprocessor*/
 
 public class SortDataPreprocessor extends Configured implements Tool {
 	/**

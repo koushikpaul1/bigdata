@@ -29,7 +29,7 @@ import org.apache.log4j.PropertyConfigurator;
  * then it upload this as input for the next phase using distributed cache .
  */
 /**
- * -D mapred.reduce.tasks=30 data/seqenceFilewithLongwritableKey
+ * -D mapred.reduce.tasks=30 data/misc/seqenceFilewithLongwritableKey
  * output/SortByTemperatureUsingTotalOrderPartitioner
  */
 public class SortByTemperatureUsingTotalOrderPartitioner extends Configured implements Tool {

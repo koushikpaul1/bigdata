@@ -1,4 +1,4 @@
-package com.edge.customKeySort;
+package com.edge.sort.customKeySort;
 
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.WritableComparable;

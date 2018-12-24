@@ -21,7 +21,7 @@ import org.apache.hadoop.util.ToolRunner;
 /**Run As> Run Configurations..>
 * Project-> MapReduce,
 * MainClass-> com.edge.output.multipleOutputs.MultipleOutputsPartitionByStationUsing
-* data/NCDC output/NCDC/
+* data/misc/NCDC output/NCDC/
 */
 
 

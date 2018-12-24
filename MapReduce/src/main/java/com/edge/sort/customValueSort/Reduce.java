@@ -1,4 +1,4 @@
-package com.edge.customValueSort;
+package com.edge.sort.customValueSort;
 
 import java.io.IOException;
 
@@ -10,6 +10,6 @@ public class Reduce extends Reducer<Employee, Text, Employee, Text> {
 	protected void reduce(Employee key, Iterable<Text> val, Context context)throws IOException, InterruptedException {
 
 		for (Text value : val)
-			context.write(key, value);
+			context.write(key, new Text(" 		"+value.toString()));
 	}
 }

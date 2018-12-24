@@ -19,7 +19,7 @@ import org.apache.log4j.PropertyConfigurator;
 //Run As> Run Configurations..>
 //Project-> MapReduce,
 //MainClass-> com.edge.basic.WordCount
-//data/wordCount  output/wordCount 
+//data/misc/wordCount  output/wordCount 
 public class WordCount {
 	public static void main(String[] args) throws Exception {
 

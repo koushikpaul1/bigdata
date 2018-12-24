@@ -1,4 +1,4 @@
-package com.edge.customKeySort;
+package com.edge.sort.customKeySort;
 
 import java.io.IOException;
 import java.util.StringTokenizer;
