@@ -23,7 +23,7 @@ import org.apache.log4j.PropertyConfigurator;
 /**Run As> Run Configurations..>
  * Project-> MapReduce,
  * MainClass-> com.edge.basic.WordCountNline
- * -D LowerLimit=6  -D mapreduce.job.reduces=2 data/misc/wordCount  output/basic/toolRunner <Configuration conf = this.getConf(); this allows to take runtime arg>*/
+ * -D LowerLimit=6  -D mapreduce.job.reduces=2 input/misc/wordCount  output/basic/toolRunner <Configuration conf = this.getConf(); this allows to take runtime arg>*/
 public class WordCountToolRunner extends Configured implements Tool {
 	/**
 	 * The Driver class is implementing Tool interface The Tool interface has three abstract methods which need to be defined
@@ -43,6 +43,13 @@ public class WordCountToolRunner extends Configured implements Tool {
 		Job job = Job.getInstance(conf, "WordCountToolRunner");
 		//Job job = new Job(conf, "WordCountToolRunner");
 		job.setJarByClass(WordCountToolRunner.class);
+		FileInputFormat.addInputPath(job, new Path(args[0]));
+		Path outputPath = new Path(args[1]);
+		FileSystem fs = FileSystem.get(new URI(outputPath.toString()), conf);
+		fs.delete(outputPath, true);
+		FileOutputFormat.setOutputPath(job, outputPath);
+		
+		
 		job.setMapperClass(Mapp.class);
 		job.setCombinerClass(Reducee.class);
 		job.setReducerClass(Reducee.class);
@@ -53,11 +60,7 @@ public class WordCountToolRunner extends Configured implements Tool {
 
 		//LazyOutputFormat.setOutputFormatClass(job, TextOutputFormat.class);
 		job.setOutputFormatClass(TextOutputFormat.class);
-		FileInputFormat.addInputPath(job, new Path(args[0]));
-		Path outputPath = new Path(args[1]);
-		FileSystem fs = FileSystem.get(new URI(outputPath.toString()), conf);
-		fs.delete(outputPath, true);
-		FileOutputFormat.setOutputPath(job, outputPath);
+	
 		return job.waitForCompletion(true) ? 0 : 1;
 	}
 

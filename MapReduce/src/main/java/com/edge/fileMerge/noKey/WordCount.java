@@ -25,7 +25,7 @@ import org.apache.log4j.PropertyConfigurator;
 //Run As> Run Configurations..>
 //Project-> MapReduce,
 //MainClass-> com.edge.noKey.WordCount
-//data/misc/wordCount output/noKey
+//input/misc/wordCount output/noKey
 public class WordCount extends Configured implements Tool {
 	 public static void main(String args[]) throws Exception {
 		 String log4jConfPath = "log4j.properties";

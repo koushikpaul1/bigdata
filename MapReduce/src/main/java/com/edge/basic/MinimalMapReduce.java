@@ -21,7 +21,7 @@ import org.apache.hadoop.util.ToolRunner;
  * where the integers in the final output come from: they are the line offsets.
  */
 
-/** data/misc/NCDC output/MinimalMapReduce */
+/** input/ncdc/NCDC output/MinimalMapReduce */
 
 public class MinimalMapReduce extends Configured implements Tool {
 

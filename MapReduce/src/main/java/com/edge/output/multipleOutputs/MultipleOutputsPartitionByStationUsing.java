@@ -18,10 +18,12 @@ import org.apache.hadoop.mapreduce.lib.output.MultipleOutputs;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
+import com.edge.util.book.NcdcRecordParser;
+
 /**Run As> Run Configurations..>
 * Project-> MapReduce,
 * MainClass-> com.edge.output.multipleOutputs.MultipleOutputsPartitionByStationUsing
-* data/misc/NCDC output/NCDC/
+* input/ncdc/NCDC output/NCDC/
 */
 
 

@@ -21,12 +21,12 @@ import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 import org.apache.log4j.PropertyConfigurator;
 
-import com.edge.output.multipleOutputs.NcdcRecordParser;
+import com.edge.util.book.NcdcRecordParser;
 
 /**Run As> Run Configurations..>
  * Project-> MapReduce,
  * MainClass-> com.edge.basic.WordCountNline
- *  data/misc/NCDC output/SortDataPreprocessor*/
+ *  input/ncdc/NCDC output/SortDataPreprocessor*/
 
 public class SortDataPreprocessor extends Configured implements Tool {
 	/**

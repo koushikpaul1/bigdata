@@ -1,4 +1,4 @@
-package com.edge.toolRunner;
+package com.edge.basic;
 
 import java.io.IOException;
 import java.net.URI;
@@ -32,7 +32,8 @@ public class WordCountTemplate extends Configured implements Tool {
 	public static void main(String args[]) throws Exception {
 		String log4jConfPath = "log4j.properties";
 		PropertyConfigurator.configure(log4jConfPath);
-		System.exit(ToolRunner.run(new WordCountTemplate(), args));
+		int res = ToolRunner.run(new WordCountTemplate(), args);
+		System.exit(res);
 	}
 
 	public int run(String[] args) throws Exception {

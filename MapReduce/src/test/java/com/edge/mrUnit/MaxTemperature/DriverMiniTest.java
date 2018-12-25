@@ -36,7 +36,7 @@ public class DriverMiniTest  extends ClusterMapReduceTestCase implements PathFil
 	  public void test() throws Exception {
 	    Configuration conf = createJobConf();
 	    
-	    Path localInput = new Path("data/misc/NCDC");
+	    Path localInput = new Path("input/ncdc/NCDC");
 	   // Path localInput = new Path("input/ncdc/micro");
 	    Path input = getInputDir();
 	    Path output = getOutputDir();

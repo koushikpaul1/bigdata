@@ -5,6 +5,8 @@ import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
+
+import com.edge.util.book.NcdcRecordParser;
 public class MapperUsesParser extends Mapper<LongWritable, Text, Text, IntWritable> {
 	private NcdcRecordParser parser = new NcdcRecordParser();
 	@Override

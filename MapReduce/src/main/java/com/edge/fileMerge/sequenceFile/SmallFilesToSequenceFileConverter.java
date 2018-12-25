@@ -27,7 +27,7 @@ import org.apache.log4j.PropertyConfigurator;
 /**Run As> Run Configurations..>
  * Project-> MapReduce,
  * MainClass-> com.edge.basic.WordCountNline
- * -conf conf/hadoop-localhost.xml -D mapreduce.job.reduces=2 data/misc/MultipleFiles output/smallFiles
+ * -conf conf/hadoop-localhost.xml -D mapreduce.job.reduces=2 input/misc/MultipleFiles output/smallFiles
 */
 
 public class SmallFilesToSequenceFileConverter extends Configured implements Tool {

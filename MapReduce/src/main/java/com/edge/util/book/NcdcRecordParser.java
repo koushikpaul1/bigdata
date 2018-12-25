@@ -1,4 +1,4 @@
-package com.edge.util;
+package com.edge.util.book;
 
 import java.text.DateFormat;
 import java.text.ParseException;
