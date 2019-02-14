@@ -32,8 +32,7 @@ public class WordCountTemplate extends Configured implements Tool {
 	public static void main(String args[]) throws Exception {
 		String log4jConfPath = "log4j.properties";
 		PropertyConfigurator.configure(log4jConfPath);
-		int res = ToolRunner.run(new WordCountTemplate(), args);
-		System.exit(res);
+		System.exit(ToolRunner.run(new WordCountTemplate(), args));
 	}
 
 	public int run(String[] args) throws Exception {

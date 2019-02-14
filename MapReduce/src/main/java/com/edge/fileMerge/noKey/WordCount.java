@@ -22,6 +22,10 @@ import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 import org.apache.log4j.PropertyConfigurator;
 
+//Run As> Run Configurations..>
+//Project-> MapReduce,
+//MainClass-> com.edge.noKey.WordCount
+//input/misc/wordCount output/noKey
 public class WordCount extends Configured implements Tool {
 	 public static void main(String args[]) throws Exception {
 		 String log4jConfPath = "log4j.properties";
@@ -33,8 +37,8 @@ public class WordCount extends Configured implements Tool {
 	  public int run(String[] args) throws Exception {    	
     	Configuration conf = new Configuration();
     	
-    	
-		Job job = new Job(conf, "word count");
+    	Job job = Job.getInstance(conf, "word count");
+		//Job job = new Job(conf, "word count");
 		job.setJarByClass(WordCount.class);
 		job.setMapperClass(WordCountMapper.class);
 		job.setReducerClass(WordCountReducer.class);
@@ -54,7 +58,12 @@ public class WordCount extends Configured implements Tool {
 
 
 class WordCountMapper extends Mapper<LongWritable, Text, Text, NullWritable> {	
+	enum WordCount {
+		COUNT
+	}
     protected void map(LongWritable k1, Text v1, Context context) throws IOException, InterruptedException { 
+    	
+    	context.getCounter(WordCount.COUNT).increment(1);;  
     		context.write( v1,NullWritable.get());    	   	
     }
 }

@@ -27,4 +27,3 @@ public class WholeFileInputFormat
     return reader;
   }
 }
-//^^ WholeFileInputFormat
