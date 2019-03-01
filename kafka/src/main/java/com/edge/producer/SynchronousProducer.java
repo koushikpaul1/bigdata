@@ -1,4 +1,4 @@
-package com.edge.kafka;
+package com.edge.producer;
 
 import java.util.Properties;
 
