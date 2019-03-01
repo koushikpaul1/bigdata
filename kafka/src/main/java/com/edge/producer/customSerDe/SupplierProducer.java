@@ -10,9 +10,9 @@ public class SupplierProducer {
       String topicName = "SupplierTopic";
 
       Properties props = new Properties();
-      props.put("bootstrap.servers", "localhost:9092,localhost:9093");
+      props.put("bootstrap.servers", "localhost:9092,localhost:9093,,localhost:9094");
       props.put("key.serializer","org.apache.kafka.common.serialization.StringSerializer");
-      props.put("value.serializer", "SupplierSerializer");
+      props.put("value.serializer", "com.edge.producer.customSerDe.SupplierSerializer");
 
       Producer<String, Supplier> producer = new KafkaProducer <>(props);
 

@@ -1,7 +1,7 @@
 package com.edge.producer;
 import java.util.*;
 import org.apache.kafka.clients.producer.*;
-public class FireNForgetProducer {
+public class AFireNForgetProducer {
   
    public static void main(String[] args) throws Exception{
            

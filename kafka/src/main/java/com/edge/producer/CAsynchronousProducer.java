@@ -8,10 +8,10 @@ import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 
 
-public class AsynchronousProducer {
+public class CAsynchronousProducer {
 
    public static void main(String[] args) throws Exception{
-      String topicName = "AsynchronousProducerTopic";
+      String topicName = "edge-3";
           String key = "Key1";
           String value = "Value-1";
 

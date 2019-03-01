@@ -9,7 +9,7 @@ import com.edge.producer.customSerDe.Supplier;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 
-public class ManualConsumer{
+public class BManualConsumer{
 
     public static void main(String[] args) throws Exception{
 
@@ -34,12 +34,12 @@ public class ManualConsumer{
                 for (ConsumerRecord<String, Supplier> record : records){
                     System.out.println("Supplier id= " + String.valueOf(record.value().getID()) + " Supplier  Name = " + record.value().getName() + " Supplier Start Date = " + record.value().getStartDate().toString());
                 }
-                consumer.commitAsync();
+                consumer.commitAsync();//manual commit before every poll
             }
         }catch(Exception ex){
             ex.printStackTrace();
         }finally{
-            consumer.commitSync();
+            consumer.commitSync();//
             consumer.close();
         }
     }
