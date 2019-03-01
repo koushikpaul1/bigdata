@@ -1,4 +1,4 @@
-package com.edge.producer.customSerDe;
+package com.edge.beanUtil;
 import org.apache.kafka.common.serialization.Serializer;
 import org.apache.kafka.common.errors.SerializationException;
 import java.io.UnsupportedEncodingException;

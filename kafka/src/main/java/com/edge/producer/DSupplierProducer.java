@@ -1,16 +1,18 @@
-package com.edge.producer.customSerDe;
+package com.edge.producer;
 import java.util.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import org.apache.kafka.clients.producer.*;
-public class SupplierProducer {
+
+import com.edge.beanUtil.Supplier;
+public class DSupplierProducer {
 
    public static void main(String[] args) throws Exception{
 
       String topicName = "SupplierTopic";
 
       Properties props = new Properties();
-      props.put("bootstrap.servers", "localhost:9092,localhost:9093,,localhost:9094");
+      props.put("bootstrap.servers", "192.168.211.137:9092,192.168.211.137:9093,,192.168.211.137:9094");
       props.put("key.serializer","org.apache.kafka.common.serialization.StringSerializer");
       props.put("value.serializer", "com.edge.producer.customSerDe.SupplierSerializer");
 

@@ -8,6 +8,8 @@ package com.edge.consumer;
 import java.util.*;
 import org.apache.kafka.clients.consumer.*;
 
+import com.edge.beanUtil.RebalanceListner;
+
 public class CRandomConsumer{
     
     
@@ -25,9 +27,9 @@ public class CRandomConsumer{
             props.put("enable.auto.commit", "false");
 
             consumer = new KafkaConsumer<>(props);
-            RebalanceListner rebalanceListner = new RebalanceListner(consumer);// Listener , to keep track of the processed offsets.
-            
-            consumer.subscribe(Arrays.asList(topicName),rebalanceListner);
+            RebalanceListner rebalanceListner = new RebalanceListner(consumer);// Listener , to keep track of the processed offsets.            
+            consumer.subscribe(Arrays.asList(topicName),rebalanceListner);//passing the listener,the parent interface of Listener has a method onPartitionRevoked,
+            //when partition is revoked this method gets called automatically, within this method we have to implement the commiting of the offset.  so new reads happens from this offset
             try{
                 while (true){
                     ConsumerRecords<String, String> records = consumer.poll(100);
@@ -36,7 +38,7 @@ public class CRandomConsumer{
                        // Do some processing and save it to Database
                         rebalanceListner.addOffset(record.topic(), record.partition(),record.offset());// update the processed offset
                     }
-                        //consumer.commitSync(rebalanceListner.getCurrentOffsets());
+                        consumer.commitSync(rebalanceListner.getCurrentOffsets());//manual sync in normal case( no rebalance)
                 }
             }catch(Exception ex){
                 System.out.println("Exception.");

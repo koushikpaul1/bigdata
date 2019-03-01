@@ -4,7 +4,7 @@ import java.util.*;
 import java.io.*;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 
-import com.edge.producer.customSerDe.Supplier;
+import com.edge.beanUtil.Supplier;
 
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.ConsumerRecord;

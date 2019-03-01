@@ -1,4 +1,4 @@
-package com.edge.producer.customSerDe;
+package com.edge.beanUtil;
 import java.util.Date;
 public class Supplier{
         private int supplierId;

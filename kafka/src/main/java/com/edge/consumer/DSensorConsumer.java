@@ -1,11 +1,15 @@
 package com.edge.consumer;
 
+//In the Manual consumer we update the consumer after every batch of process.
+//In the Consumer with Listener(RandomConsumer) we update the value of offset in rebalanceListner.addOffset
+// but in case a consumer crashes in between these two steps, offset wont be updated.
+// So in this case we are processing and updating the offset( we are using a DB to keep track of the offset) in a single atomic operation
 import java.util.*;
 import org.apache.kafka.clients.consumer.*;
 import org.apache.kafka.common.*;
 import java.sql.*;
 
-public class SensorConsumer{
+public class DSensorConsumer{
 
 
     public static void main(String[] args) throws Exception{
@@ -61,7 +65,7 @@ public class SensorConsumer{
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/test","root","pandey");
 
-                String sql = "select offset from tss_offsets where topic_name='" + p.topic() + "' and partition=" + p.partition();
+                String sql = "select offset from tss_offsets where topic_name='" + p.topic() + "' and parttition=" + p.partition();
                 Statement stmt=con.createStatement();
                 ResultSet rs = stmt.executeQuery(sql);
                 if (rs.next())
@@ -86,7 +90,7 @@ public class SensorConsumer{
             psInsert.setString(1,r.key());
             psInsert.setString(2,r.value());
 
-            String updateSQL = "update tss_offsets set offset=? where topic_name=? and partition=?";
+            String updateSQL = "update tss_offsets set offset=? where topic_name=? and parttition=?";
             PreparedStatement psUpdate = con.prepareStatement(updateSQL);
             psUpdate.setLong(1,r.offset()+1);
             psUpdate.setString(2,r.topic());

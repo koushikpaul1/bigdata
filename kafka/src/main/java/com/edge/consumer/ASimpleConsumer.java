@@ -6,7 +6,7 @@ package com.edge.consumer;
 import java.util.*;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 
-import com.edge.producer.customSerDe.Supplier;
+import com.edge.beanUtil.Supplier;
 
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
@@ -20,7 +20,7 @@ public class ASimpleConsumer {
 		String groupName = "SupplierTopicGroup";
 
 		Properties props = new Properties();
-		props.put("bootstrap.servers", "localhost:9092,localhost:9093");
+		props.put("bootstrap.servers", "192.168.211.137:9092,192.168.211.137:9093");
 		props.put("group.id", groupName);
 		props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
 		props.put("value.deserializer", "com.edge.producer.customSerDe.SupplierDeserializer");

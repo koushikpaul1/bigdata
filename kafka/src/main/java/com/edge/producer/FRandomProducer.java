@@ -2,7 +2,7 @@ package com.edge.producer;
 
 import java.util.*;
 import org.apache.kafka.clients.producer.*;
-public class DRandomProducer {
+public class FRandomProducer {
   
    public static void main(String[] args) throws InterruptedException{
            
@@ -10,7 +10,7 @@ public class DRandomProducer {
       String msg;
       
       Properties props = new Properties();
-      props.put("bootstrap.servers", "localhost:9092,localhost:9093,,localhost:9094");
+      props.put("bootstrap.servers", "192.168.211.137:9092,192.168.211.137:9093,,192.168.211.137:9094");
       props.put("key.serializer","org.apache.kafka.common.serialization.StringSerializer");         
       props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
             
@@ -21,7 +21,7 @@ public class DRandomProducer {
       try{
           while(true){
               for (int i=0;i<100;i++){
-            	  Thread.sleep(10);
+            	  //Thread.sleep(20);
                 msg = dt.get(Calendar.YEAR)+"-"+dt.get(Calendar.MONTH)+"-"+dt.get(Calendar.DATE) + "," + rg.nextInt(1000);
                 producer.send(new ProducerRecord<String, String>(topicName,0,"Key",msg)).get();
                 msg = dt.get(Calendar.YEAR)+"-"+dt.get(Calendar.MONTH)+"-"+dt.get(Calendar.DATE) + "," + rg.nextInt(1000);

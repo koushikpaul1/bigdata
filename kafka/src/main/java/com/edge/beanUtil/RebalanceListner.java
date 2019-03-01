@@ -1,4 +1,4 @@
-package com.edge.consumer;
+package com.edge.beanUtil;
 
 import java.util.*;
 import org.apache.kafka.clients.consumer.*;
@@ -36,7 +36,7 @@ public class RebalanceListner implements ConsumerRebalanceListener {
         for(TopicPartition tp: currentOffsets.keySet())
             System.out.println(tp.partition());
         
-        consumer.commitSync(currentOffsets);
+        consumer.commitSync(currentOffsets);// this is the actual work, updating the offset
         currentOffsets.clear();
     }
 }

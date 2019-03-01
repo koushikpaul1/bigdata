@@ -1,4 +1,4 @@
-package com.edge.producer.customSerDe;
+package com.edge.beanUtil;
 import java.nio.ByteBuffer;
 import java.util.Date;
 import java.text.DateFormat;
