@@ -30,6 +30,13 @@
     <artifactId>kafka_2.11</artifactId>
     <version>2.1.1</version>
 </dependency>
+<!-- https://mvnrepository.com/artifact/org.apache.avro/avro -->
+<dependency>
+    <groupId>org.apache.avro</groupId>
+    <artifactId>avro</artifactId>
+    <version>1.8.2</version>
+</dependency>
+
     
   </dependencies>
 
