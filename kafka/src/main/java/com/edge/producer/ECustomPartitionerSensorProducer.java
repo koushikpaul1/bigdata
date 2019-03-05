@@ -10,10 +10,10 @@ public class ECustomPartitionerSensorProducer {
 
    public static void main(String[] args) throws Exception{
 
-      String topicName = "SensorTopic";
+      String topicName = "edge";
 
       Properties props = new Properties();
-      props.put("bootstrap.servers", "localhost:9092,localhost:9093");
+      props.put("bootstrap.servers", "192.168.85.132:9092,192.168.85.132:9093");
       props.put("key.serializer","org.apache.kafka.common.serialization.StringSerializer");
       props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
       props.put("partitioner.class", "SensorPartitioner");

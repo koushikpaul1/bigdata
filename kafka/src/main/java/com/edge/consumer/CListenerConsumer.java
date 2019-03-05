@@ -1,7 +1,7 @@
 package com.edge.consumer;
 //With Listener this class keeps the current(processed) offset in case of a rebalance occurs in between processing. 
 
-//Create a topic<SupplierTopic> with two partition.
+//Create a topic<edge> with two partition.
 //This consumer belongs to a group, launch second instance of the same class, rebalance will trigger and instead of two, now each of them will have 
 //a single partition to consume from. If launched third instance, again rebalance will occur and only two of the will point to a partition each.
 
@@ -10,17 +10,17 @@ import org.apache.kafka.clients.consumer.*;
 
 import com.edge.beanUtil.RebalanceListner;
 
-public class CRandomConsumer{
+public class CListenerConsumer{
     
     
     public static void main(String[] args) throws Exception{
 
-            String topicName = "RandomProducerTopic";
+            String topicName = "edge";
             KafkaConsumer<String, String> consumer = null;
             
             String groupName = "RG";
             Properties props = new Properties();
-            props.put("bootstrap.servers", "localhost:9092,localhost:9093");
+            props.put("bootstrap.servers", "192.168.85.132:9092,192.168.85.132:9093");
             props.put("group.id", groupName);
             props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
             props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");

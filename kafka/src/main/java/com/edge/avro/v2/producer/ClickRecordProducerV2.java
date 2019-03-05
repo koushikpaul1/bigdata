@@ -1,8 +1,10 @@
-package com.edge.avro.producer.v1;
+package com.edge.avro.v2.producer;
 
 import java.util.*;
 import org.apache.kafka.clients.producer.*;
-public class AvroProducer {
+
+import com.edge.avro.v2.ClickRecord;
+public class ClickRecordProducerV2 {
 
     public static void main(String[] args) throws Exception{
 
@@ -10,10 +12,10 @@ public class AvroProducer {
         String msg;
 
         Properties props = new Properties();
-        props.put("bootstrap.servers", "192.168.211.137:9092,192.168.211.137:9093,192.168.211.137:9094");        
+        props.put("bootstrap.servers", "192.168.85.132:9092,192.168.85.132:9093");
         props.put("key.serializer","org.apache.kafka.common.serialization.StringSerializer");
         props.put("value.serializer", "io.confluent.kafka.serializers.KafkaAvroSerializer");
-        props.put("schema.registry.url", "http://localhost:8081");
+        props.put("schema.registry.url", "http://192.168.85.132:8081");
 
         Producer<String, ClickRecord> producer = new KafkaProducer <>(props);
         ClickRecord cr = new ClickRecord();
@@ -21,6 +23,9 @@ public class AvroProducer {
             cr.setSessionId("10001");
             cr.setChannel("HomePage");
             cr.setIp("192.168.0.1");
+            cr.setLanguage("Spanish");
+            cr.setOs("Mac");
+            cr.setEntryUrl("http://facebook.com/myadd");
 
             producer.send(new ProducerRecord<String, ClickRecord>(topicName,cr.getSessionId().toString(),cr)).get();
 

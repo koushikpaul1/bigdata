@@ -12,12 +12,13 @@ import org.apache.kafka.clients.producer.RecordMetadata;
 public class BSynchronousProducer {
 	public static void main(String[] args) throws Exception{
         
-	      String topicName = "edge-3";
+	      String topicName = "edge";
 		  String key = "Key1";
 		  String value = "Value-1";
 	      
 	      Properties props = new Properties();
-	      props.put("bootstrap.servers", "localhost:9092,localhost:9093,localhost:9094");
+	      props.put("bootstrap.servers", "192.168.85.132:9092");
+	      //props.put("bootstrap.servers", "192.168.85.132:9092,192.168.85.132:9093,192.168.85.132:9094");;
 	      props.put("key.serializer","org.apache.kafka.common.serialization.StringSerializer");         
 	      props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
 		        

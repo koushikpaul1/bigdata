@@ -6,11 +6,11 @@ public class FRandomProducer {
   
    public static void main(String[] args) throws InterruptedException{
            
-      String topicName = "RandomProducerTopic";
+      String topicName = "edge";
       String msg;
       
       Properties props = new Properties();
-      props.put("bootstrap.servers", "192.168.211.137:9092,192.168.211.137:9093,,192.168.211.137:9094");
+      props.put("bootstrap.servers", "192.168.85.132:9092,192.168.85.132:9093,,192.168.85.132:9094");
       props.put("key.serializer","org.apache.kafka.common.serialization.StringSerializer");         
       props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
             

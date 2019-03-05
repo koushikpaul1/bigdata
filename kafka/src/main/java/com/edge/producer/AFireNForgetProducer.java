@@ -5,12 +5,13 @@ public class AFireNForgetProducer {
   
    public static void main(String[] args) throws Exception{
            
-      String topicName = "SimpleProducerTopic";
+      String topicName = "c-edge";
 	  String key = "Key1";
 	  String value = "Value-1";
       
       Properties props = new Properties();
-      props.put("bootstrap.servers", "localhost:9092,localhost:9093");
+      props.put("bootstrap.servers", "192.168.85.132:9092");
+      //props.put("bootstrap.servers", "192.168.85.132:9092,192.168.85.132:9093,192.168.85.132:9094");
       props.put("key.serializer","org.apache.kafka.common.serialization.StringSerializer");         
       props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
 	        

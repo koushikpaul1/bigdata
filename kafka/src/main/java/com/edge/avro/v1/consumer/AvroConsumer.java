@@ -1,7 +1,12 @@
-package com.edge.avro.consumer.v1;
+package com.edge.avro.v1.consumer;
 
 import java.util.*;
+
+import org.apache.avro.specific.SpecificData;
 import org.apache.kafka.clients.consumer.*;
+
+import com.edge.avro.v1.ClickRecord;
+
 
 
 public class AvroConsumer{    
@@ -12,11 +17,11 @@ public class AvroConsumer{
             
         String groupName = "RG";
         Properties props = new Properties();
-        props.put("bootstrap.servers", "localhost:9092,localhost:9093");
+        props.put("bootstrap.servers", "192.168.85.132:9092,192.168.85.132:9093");
         props.put("group.id", groupName);
         props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         props.put("value.deserializer", "io.confluent.kafka.serializers.KafkaAvroDeserializer");
-        props.put("schema.registry.url", "http://localhost:8081");
+        props.put("schema.registry.url", "http://192.168.85.132:8081");
         props.put("specific.avro.reader", "true");
         
         KafkaConsumer<String, ClickRecord> consumer = new KafkaConsumer<>(props);
@@ -39,3 +44,7 @@ public class AvroConsumer{
     }
     
 }
+
+
+
+
