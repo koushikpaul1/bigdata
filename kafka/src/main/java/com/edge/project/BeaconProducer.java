@@ -43,8 +43,7 @@ public class BeaconProducer {
 		while (resultSet.next()) {
 			row = "";
 			for (int i = 1; i <= columns; i++) {
-				row+= resultSet.getString(i) + "|";
-				row=StringUtils.chop(row);
+				row+= resultSet.getString(i) + ",";
 				}
 			record = new ProducerRecord<>(topic, Integer.toString(++count), row);
 			System.out.println(Integer.toString(++count) + " => " + row);
