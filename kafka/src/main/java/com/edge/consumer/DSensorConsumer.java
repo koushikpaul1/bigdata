@@ -19,7 +19,7 @@ public class DSensorConsumer{
             int rCount;
 
             Properties props = new Properties();
-            props.put("bootstrap.servers", "192.168.85.132:9092,192.168.85.132:9093");
+            props.put("bootstrap.servers", "192.168.85.133:9092,192.168.85.133:9093");
             props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
             props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
             props.put("enable.auto.commit", "false");
@@ -63,7 +63,7 @@ public class DSensorConsumer{
         long offset = 0;
         try{
                 Class.forName("com.mysql.jdbc.Driver");
-                Connection con=DriverManager.getConnection("jdbc:mysql://192.168.85.132:3306/test","root","pandey");
+                Connection con=DriverManager.getConnection("jdbc:mysql://192.168.85.133:3306/test","root","pandey");
 
                 String sql = "select offset from tss_offsets where topic_name='" + p.topic() + "' and parttition=" + p.partition();
                 Statement stmt=con.createStatement();
@@ -82,7 +82,7 @@ public class DSensorConsumer{
         System.out.println("Topic=" + r.topic() + " Partition=" + r.partition() + " Offset=" + r.offset() + " Key=" + r.key() + " Value=" + r.value());
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con=DriverManager.getConnection("jdbc:mysql://192.168.85.132:3306/test","root","pandey");
+            Connection con=DriverManager.getConnection("jdbc:mysql://192.168.85.133:3306/test","root","pandey");
             con.setAutoCommit(false);
 
             String insertSQL = "insert into tss_data values(?,?)";

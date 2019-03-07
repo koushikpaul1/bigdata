@@ -16,11 +16,11 @@ public class ASimpleConsumer {
 	@SuppressWarnings("deprecation")
 	public static void main(String[] args) throws Exception {
 
-		String topicName = "c-edge";
+		String topicName = "locator";
 		String groupName = "edgeGroup";
 
 		Properties props = new Properties();
-		props.put("bootstrap.servers", "192.168.85.132:9093");
+		props.put("bootstrap.servers", "192.168.85.133:9092");
 		props.put("group.id", groupName);
 		props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
 		props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");

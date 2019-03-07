@@ -13,7 +13,7 @@ public class ECustomPartitionerSensorProducer {
       String topicName = "edge";
 
       Properties props = new Properties();
-      props.put("bootstrap.servers", "192.168.85.132:9092,192.168.85.132:9093");
+      props.put("bootstrap.servers", "192.168.85.133:9092,192.168.85.133:9093");
       props.put("key.serializer","org.apache.kafka.common.serialization.StringSerializer");
       props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
       props.put("partitioner.class", "SensorPartitioner");

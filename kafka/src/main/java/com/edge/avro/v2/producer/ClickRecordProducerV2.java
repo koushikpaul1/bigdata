@@ -12,10 +12,10 @@ public class ClickRecordProducerV2 {
         String msg;
 
         Properties props = new Properties();
-        props.put("bootstrap.servers", "192.168.85.132:9092,192.168.85.132:9093");
+        props.put("bootstrap.servers", "192.168.85.133:9092,192.168.85.133:9093");
         props.put("key.serializer","org.apache.kafka.common.serialization.StringSerializer");
         props.put("value.serializer", "io.confluent.kafka.serializers.KafkaAvroSerializer");
-        props.put("schema.registry.url", "http://192.168.85.132:8081");
+        props.put("schema.registry.url", "http://192.168.85.133:8081");
 
         Producer<String, ClickRecord> producer = new KafkaProducer <>(props);
         ClickRecord cr = new ClickRecord();

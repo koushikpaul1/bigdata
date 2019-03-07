@@ -18,7 +18,7 @@ public class BManualConsumer{
 		String groupName = "edgeGroup";
 
 		Properties props = new Properties();
-		props.put("bootstrap.servers", "192.168.85.132:9092,192.168.85.132:9093");
+		props.put("bootstrap.servers", "192.168.85.133:9092,192.168.85.133:9093");
 		props.put("group.id", groupName);
 		props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
 		props.put("value.deserializer", "com.edge.beanUtil.SupplierDeserializer");
