@@ -1,0 +1,5 @@
+package just
+
+object KK {
+  
+}
