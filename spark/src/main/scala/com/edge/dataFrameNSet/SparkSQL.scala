@@ -21,7 +21,7 @@ object SparkSQL {
       .config("spark.sql.warehouse.dir", "file:///D:/temp/spark")
       .getOrCreate()
 
-    val people = ss.sparkContext.textFile("input/course/fakefriends.csv").map(mapper)
+    val people = ss.sparkContext.textFile("input/udemy/spark-scala/fakefriends.csv").map(mapper)
     import ss.implicits._
     val schemaPeople = people.toDS()
     schemaPeople.printSchema()

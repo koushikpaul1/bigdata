@@ -34,7 +34,7 @@ object DataFrames {
     // Convert our csv file to a DataSet, using our Person case
     // class to infer the schema.
     import spark.implicits._
-    val lines = spark.sparkContext.textFile("input/course/fakefriends.csv")
+    val lines = spark.sparkContext.textFile("input/udemy/spark-scala/fakefriends.csv")
     val people = lines.map(mapper).toDS().cache()
     
     // There are lots of other ways to make a DataFrame.

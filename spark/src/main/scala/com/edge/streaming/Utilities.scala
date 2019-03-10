@@ -1,4 +1,4 @@
-package just
+package com.edge.streaming
 
 import java.util.regex.Pattern
 

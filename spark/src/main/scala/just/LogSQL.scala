@@ -11,7 +11,7 @@ import org.apache.spark.SparkContext
 import java.util.regex.Pattern
 import java.util.regex.Matcher
 
-import Utilities._
+import com.edge.streaming.Utilities._
 
 /** Illustrates using SparkSQL with Spark Streaming, to issue queries on 
  *  Apache log data extracted from a stream on port 9999.

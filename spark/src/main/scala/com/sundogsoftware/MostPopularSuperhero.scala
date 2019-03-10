@@ -33,11 +33,11 @@ object MostPopularSuperhero {
     val sc = new SparkContext("local[*]", "MostPopularSuperhero")   
     
     // Build up a hero ID -> name RDD
-    val names = sc.textFile("input/course/marvel-names.txt")
+    val names = sc.textFile("input/udemy/spark-scala/marvel-names.txt")
     val namesRdd = names.flatMap(parseNames)
     
     // Load up the superhero co-apperarance data
-    val lines = sc.textFile("input/course/marvel-graph.txt")
+    val lines = sc.textFile("input/udemy/spark-scala/marvel-graph.txt")
     
     // Convert to (heroID, number of connections) RDD
     val pairings = lines.map(countCoOccurences)

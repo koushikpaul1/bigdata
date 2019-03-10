@@ -18,7 +18,7 @@ object MinTemperatures {
   def main(a: Array[String]) {
     Logger.getLogger("org").setLevel(Level.ERROR)
     val sc = new SparkContext("local[*]", "MinTemperatures")
-    val lines = sc.textFile("input/course/1800.csv")
+    val lines = sc.textFile("input/udemy/spark-scala/1800.csv")
     val parsedLines = lines.map(parseLine)
     val minTemps = parsedLines.filter(x => x._2 == "TMAX")
     val stationTemps = minTemps.map(x => (x._1, x._3.toFloat))

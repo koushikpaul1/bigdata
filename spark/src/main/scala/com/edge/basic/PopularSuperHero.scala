@@ -24,8 +24,8 @@ object PopularSuperHero {
   def main(args: Array[String]) {
     Logger.getLogger("org").setLevel(Level.ERROR)
     val sc = new SparkContext("local[1]", "MostPopularSuperhero")
-    val namesRdd = sc.textFile("input/course/marvel-names.txt").flatMap(nameMap)
-    val friends = sc.textFile("input/course/marvel-graph.txt").map(groupFriends).reduceByKey((x, y) => (x + y)).map(x => (x._2, x._1)).sortByKey(false)
+    val namesRdd = sc.textFile("input/udemy/spark-scala/marvel-names.txt").flatMap(nameMap)
+    val friends = sc.textFile("input/udemy/spark-scala/marvel-graph.txt").map(groupFriends).reduceByKey((x, y) => (x + y)).map(x => (x._2, x._1)).sortByKey(false)
     println(namesRdd.lookup(friends.first()._2)(0) + " is the most popular superhero with " + friends.first()._1 + " co-apperances")
   }
 }

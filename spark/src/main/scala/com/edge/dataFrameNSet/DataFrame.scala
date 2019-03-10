@@ -24,7 +24,7 @@ object DataFrame {
       .appName("DataFrame")
       .getOrCreate()
     import ss.implicits._
-    val people = ss.sparkContext.textFile("input/course/fakefriends.csv").map(mapper).toDS().cache()
+    val people = ss.sparkContext.textFile("input/udemy/spark-scala/fakefriends.csv").map(mapper).toDS().cache()
     println("Here is our inferred schema:")
     people.printSchema()
     println("Let's select the name column:")

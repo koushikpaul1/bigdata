@@ -24,12 +24,12 @@ object LinearRegressionRDD {
     // Note that currently MLLib only works properly if this input data is first scaled such that
     // it ranges from -1 to 1 and has a mean of 0, more or less! You need to scale it down, then
     // remember to scale it back up later.
-    val trainingLines = sc.textFile("input/course/regression.txt")
+    val trainingLines = sc.textFile("input/udemy/spark-scala/regression.txt")
     
     // And another RDD containing our "test" data that we want to predict values for using our linear model.
     // This will expect both the known label and the feature data. In the real world you won't know
     // the "correct" value and would just input feature data.
-    val testingLines = sc.textFile("input/course/regression.txt")
+    val testingLines = sc.textFile("input/udemy/spark-scala/regression.txt")
     
     // Convert input data to LabeledPoints for MLLib
     val trainingData = trainingLines.map(LabeledPoint.parse).cache()

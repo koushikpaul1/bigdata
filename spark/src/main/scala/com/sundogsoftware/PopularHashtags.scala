@@ -22,7 +22,7 @@ object PopularHashtags {
   def setupTwitter() = {
     import scala.io.Source
     
-    for (line <- Source.fromFile("input/course/twitter.txt").getLines) {
+    for (line <- Source.fromFile("input/udemy/spark-scala/twitter.txt").getLines) {
       val fields = line.split(" ")
       if (fields.length == 2) {
         System.setProperty("twitter4j.oauth." + fields(0), fields(1))

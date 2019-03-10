@@ -1,11 +1,11 @@
-package com.edge.streaming.twitter
+package com.edge.streaming.twitter.unstructured
 
 import org.apache.spark._
 import org.apache.spark.SparkContext._
 import org.apache.spark.streaming._
 import org.apache.spark.streaming.twitter._
 import org.apache.spark.streaming.StreamingContext._
-import Utilities._
+import com.edge.streaming.Utilities._
 import java.util.concurrent._
 import java.util.concurrent.atomic._
 

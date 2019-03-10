@@ -12,7 +12,7 @@ import java.util.regex.Matcher
 import java.text.SimpleDateFormat
 import java.util.Locale
 
-import Utilities._
+import com.edge.streaming.Utilities._
 
 object StructuredStreaming {
   

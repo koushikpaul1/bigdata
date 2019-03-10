@@ -13,7 +13,7 @@ object ExpensePerCustomer {
   def main(a: Array[String]){
     Logger.getLogger("org").setLevel(Level.ERROR)
     def sc= new SparkContext("local[1]","ExpensePerCustomer")  
-    def input=sc.textFile("input/course/customer-orders.csv", 5)
+    def input=sc.textFile("input/udemy/spark-scala/customer-orders.csv", 5)
     def rdd=input.map(parseLine)
     val result=rdd.reduceByKey((a,b)=>(a+b)).map(c=>(c._2,c._1)).sortByKey(false).map(c=>(c._2,c._1))
     result.foreach(println)

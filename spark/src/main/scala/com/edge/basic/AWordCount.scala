@@ -10,7 +10,7 @@ object WordCount {
     Logger.getLogger("org").setLevel(Level.ERROR)
     val sc = new SparkContext("local[1]", "WordCount")
 
-    val input=sc.textFile("input/course/Book.txt", 5)
+    val input=sc.textFile("input/udemy/spark-scala/Book.txt", 5)
     //val words=input.flatMap(x=> x.split(" "))
     val words = input.flatMap(x => x.split("\\W+"))
     val lowercaseWords = words.map(x => x.toLowerCase())
