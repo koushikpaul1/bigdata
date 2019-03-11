@@ -1,4 +1,4 @@
-package com.edge.basic
+package com.edge.basicx
 
 import org.apache.spark._
 import org.apache.spark.SparkContext

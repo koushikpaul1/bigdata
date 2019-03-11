@@ -1,4 +1,4 @@
-// Flume setup steps (and more) at http://spark.apache.org/docs/latest/streaming-flume-integration.html
+/*// Flume setup steps (and more) at http://spark.apache.org/docs/latest/streaming-flume-integration.html
 
 package just
 
@@ -13,7 +13,7 @@ import Utilities._
 
 import org.apache.spark.streaming.flume._
 
-/** Example of connecting to Flume log data, in a "pull" configuration. */
+*//** Example of connecting to Flume log data, in a "pull" configuration. *//*
 object FlumePullExample {
   
   def main(args: Array[String]) {
@@ -55,3 +55,4 @@ object FlumePullExample {
   }
 }
 
+*/

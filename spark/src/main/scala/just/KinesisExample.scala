@@ -1,4 +1,4 @@
-// Kinesis setup steps (and more) at http://spark.apache.org/docs/latest/streaming-kinesis-integration.html
+/*// Kinesis setup steps (and more) at http://spark.apache.org/docs/latest/streaming-kinesis-integration.html
 
 package just
 
@@ -15,7 +15,7 @@ import Utilities._
  import org.apache.spark.streaming.kinesis._
  import com.amazonaws.services.kinesis.clientlibrary.lib.worker.InitialPositionInStream
  
-/** Example of connecting to Amazon Kinesis Streaming and listening for log data. */
+*//** Example of connecting to Amazon Kinesis Streaming and listening for log data. *//*
 object KinesisExample {
   
   def main(args: Array[String]) {
@@ -57,3 +57,4 @@ object KinesisExample {
   }
 }
 
+*/
