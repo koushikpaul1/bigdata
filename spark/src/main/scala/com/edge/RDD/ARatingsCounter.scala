@@ -1,4 +1,4 @@
-package com.edge.basic
+package com.edge.RDD
 
 // (The file format is userID, movieID, rating, timestamp)
 //count only ratings

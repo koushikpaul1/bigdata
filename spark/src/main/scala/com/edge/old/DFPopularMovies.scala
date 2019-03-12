@@ -1,4 +1,4 @@
-package com.edge.dataFrameNSet
+package com.edge.old
 
 import org.apache.spark._
 import org.apache.spark.SparkContext._
@@ -9,7 +9,7 @@ import scala.io.Codec
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql._
 import org.apache.spark.sql.functions._
-object PopularMovies {
+object DFPopularMovies {
 
   def loadMovieNames(): Map[Int, String] = {
     // Handle character encoding issues:
@@ -18,7 +18,7 @@ object PopularMovies {
     codec.onUnmappableCharacter(CodingErrorAction.REPLACE)
 
     var movieNames: Map[Int, String] = Map()
-    val lines = Source.fromFile("data/ml-100k/u.item").getLines()
+    val lines = Source.fromFile("input/udemy/spark-scala/ml-100k/u.item").getLines()
     for (line <- lines) {
       var fields = line.split('|')
       if (fields.length > 1) {
@@ -38,7 +38,7 @@ object PopularMovies {
       .getOrCreate()
     val nameMap = spark.sparkContext.broadcast(loadMovieNames)
 
-    val lines = spark.sparkContext.textFile("data/ml-100k/u.data")
+    val lines = spark.sparkContext.textFile("input/udemy/spark-scala/ml-100k/u.data")
     val movieId = lines.map(x => Movie(x.split("\t")(0).toInt))
 
     import spark.implicits._

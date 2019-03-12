@@ -23,7 +23,7 @@ object PopularMoviesDataSets {
     // Create a Map of Ints to Strings, and populate it from u.item.
     var movieNames:Map[Int, String] = Map()
     
-     val lines = Source.fromFile("data/ml-100k/u.item").getLines()
+     val lines = Source.fromFile("input/udemy/spark-scala/ml-100k/u.item").getLines()
      for (line <- lines) {
        var fields = line.split('|')
        if (fields.length > 1) {
@@ -52,7 +52,7 @@ object PopularMoviesDataSets {
       .getOrCreate()
     
     // Read in each rating line and extract the movie ID; construct an RDD of Movie objects.
-    val lines = spark.sparkContext.textFile("data/ml-100k/u.data").map(x => Movie(x.split("\t")(1).toInt))
+    val lines = spark.sparkContext.textFile("input/udemy/spark-scala/ml-100k/u.data").map(x => Movie(x.split("\t")(1).toInt))
     
     // Convert to a DataSet
     import spark.implicits._

@@ -1,4 +1,4 @@
-package com.edge.basic
+package com.edge.RDD
 
 import org.apache.log4j._
 import org.apache.spark._
@@ -16,8 +16,9 @@ object BKeyValueRDD {
     val sc =new SparkContext("local[2]","BKeyValueRDD")
     val linesRDD=sc.textFile("input/udemy/spark-scala/fakefriends.csv", 5)
     val ageNumFrndRDD=linesRDD.map(parseLine)
+     
     val unsortedResult=ageNumFrndRDD.
-    mapValues(data => (data,5)).
+    mapValues(data => (data,1)). // key/value RDD to key/complex value(tuple) RDD
     reduceByKey((x,y)=>(x._1+y._1,x._2+y._2)).
     mapValues(x=> (x._1 / x._2))
     

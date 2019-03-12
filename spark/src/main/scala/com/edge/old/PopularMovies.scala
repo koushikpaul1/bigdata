@@ -1,4 +1,4 @@
-package com.edge.basicx
+package com.edge.old
 
 import org.apache.spark._
 import org.apache.spark.SparkContext._
@@ -16,7 +16,7 @@ object PopularMovies {
     codec.onUnmappableCharacter(CodingErrorAction.REPLACE)
 
     var movieNames: Map[Int, String] = Map()
-    val lines = Source.fromFile("data/ml-100k/u.item").getLines()
+    val lines = Source.fromFile("input/udemy/spark-scala/ml-100k/u.item").getLines()
     for (line <- lines) {
       var fields = line.split('|')
       if (fields.length > 1) {
@@ -32,7 +32,7 @@ object PopularMovies {
     Logger.getLogger("org").setLevel(Level.ERROR)
     val sc = new SparkContext("local[*]", "PopularMoviesNicer")
     val nameMap = sc.broadcast(loadMovieNamess)
-    val lines = sc.textFile("data/ml-100k/u.data")
+    val lines = sc.textFile("input/udemy/spark-scala/ml-100k/u.data")
     val movies = lines.map(x => (x.split("\t")(1).toInt, 1))
     val movieCounts = movies.reduceByKey((x, y) => x + y).map(x => (x._2, x._1)).sortByKey(false).map(x => (x._2, x._1))
     val movieCountsName = movieCounts.map(x => (nameMap.value(x._1), x._2))

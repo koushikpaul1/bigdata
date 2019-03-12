@@ -1,4 +1,4 @@
-package com.edge.basicx
+package com.edge.old
 
 import org.apache.spark._
 import org.apache.spark.SparkContext
@@ -21,7 +21,7 @@ object MovieSimilarities {
     codec.onMalformedInput(CodingErrorAction.REPLACE)
     codec.onUnmappableCharacter(CodingErrorAction.REPLACE)
     var movieMap: Map[Int, String] = Map()
-    val lines = Source.fromFile("data/ml-100k/u.item").getLines()
+    val lines = Source.fromFile("input/udemy/spark-scala/ml-100k/u.item").getLines()
     for (line <- lines) {
       val fields = line.split('|')
       if (fields.length > 1) movieMap += (fields(0).toInt -> fields(1))
@@ -74,7 +74,7 @@ object MovieSimilarities {
     val sc = new SparkContext("local[*]", "MovieSimilarities")
     println("\nLoading movie names...")
     val nameDict = loadMovieNames()
-    val data = sc.textFile("data/ml-100k/u.data")
+    val data = sc.textFile("input/udemy/spark-scala/ml-100k/u.data")
     val ratings = data.map(createTuple)
     val joinedRatings = ratings.join(ratings)
     val uniqueJoinedRatings = joinedRatings.filter(isDuplicate)
