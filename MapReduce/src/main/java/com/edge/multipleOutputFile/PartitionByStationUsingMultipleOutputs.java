@@ -12,7 +12,8 @@ import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.hadoop.mapreduce.lib.output.MultipleOutputs;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
-import com.edge.fileMerge.sequenceFile.JobBuilder;
+
+import com.edge.util.book.NcdcRecordParser;
 
 public class PartitionByStationUsingMultipleOutputs extends Configured implements Tool {
 

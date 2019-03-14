@@ -12,8 +12,8 @@ import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 import org.apache.log4j.PropertyConfigurator;
-import com.edge.fileMerge.sequenceFile.JobBuilder;
-import com.edge.multipleOutputFile.NcdcRecordParser;
+
+import com.edge.util.book.NcdcRecordParser;
 
 public class MaxTemperatureWithCounters extends Configured implements Tool {
 	public int run(String[] args) throws Exception {

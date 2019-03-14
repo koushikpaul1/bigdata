@@ -1,0 +1,11 @@
+start zookeeper =>zoo
+start kafka broker=>kafka (to create two more broker type kafka3,kafka4)
+#/usr/local/kafka/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 2 --topic newTopic
+kafka create  topic=>topic <String:topicName int:repFactor int :partition(topic RandomProducerTopic 3 2)> ( to start the replicated topic type replicatedTopic <topicName>)
+kafka create producer=>producer  <topicName>
+kafka create consumer=>consumer  <topicName>
+List topics>/usr/local/kafka/bin/kafka-topics.sh --list --zookeeper localhost:2181
+delete topic=>/usr/local/kafka/bin/kafka-topics.sh --zookeeper localhost:2181 --delete --topic DummyTopic
+generate avro serde=>java -jar avro-tools-1.8.2.jar compile schema ClickRecordV1.avsc .
+
+

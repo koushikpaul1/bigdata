@@ -1,0 +1,37 @@
+sudo apt install python-pip
+which pip
+sudo cp /home/koushik/Downloads/Anaconda3-2018.12-Linux-x86_64.sh /usr/local/
+cd /usr/local/
+sha256sum Anaconda3-2018.12-Linux-x86_64.sh
+bash Anaconda3-2018.12-Linux-x86_64.sh 
+source ~/.bashrc
+conda list
+source ~/.bashrc
+conda list
+which conda
+conda --version
+gedit ~/.bashrc
+source ~/.bashrc
+which conda
+which jupyter
+which pip
+python
+which ipython
+pip install --upgrade toree
+toree
+jupyter toree install --spark_home=$SPARK_HOME --interpreters=Scala,PySpark,SQL --user
+jupyter notebook
+
+  
+  
+  #configure to access jupyter from a different machine 
+  jupyter notebook --generate-config
+  gedit  /home/hadoopedge/.jupyter/jupyter_notebook_config.py
+  add the following two line anywhere  
+  c.NotebookApp.allow_origin = '*' #allow all origins 
+  c.NotebookApp.ip = '0.0.0.0' # listen on all IPs
+  
+  then set a password
+  jupyter notebook password
+  and connect like http://192.168.148.132:8888/login? <change IP as needed>
+  
