@@ -1,5 +1,0 @@
-package just
-
-object KK {
-  
-}
