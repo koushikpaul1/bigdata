@@ -48,7 +48,7 @@ public class BeaconProducer {
 			record = new ProducerRecord<>(topic, Integer.toString(++count), row);
 			System.out.println(Integer.toString(++count) + " => " + row);
 			producer.send(record);
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 		}
 		producer.close();
 	}

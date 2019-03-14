@@ -1,4 +1,4 @@
-package com.edge.D_sql
+package com.edge.C_streaming.file
 
 //This is a streaming app pointing to a log dir, as more and more logs get appended in the dir, it automatically picks up those.
 import java.text.SimpleDateFormat

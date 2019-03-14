@@ -1,6 +1,6 @@
 package com.edge.D_sql
 
-import com.edge.old.SparkSQL.mapper
+//import com.edge.old.SparkSQL.mapper
 import org.apache.log4j.{Level, Logger}
 import org.apache.spark.SparkContext
 import org.apache.spark.sql.hive.HiveContext

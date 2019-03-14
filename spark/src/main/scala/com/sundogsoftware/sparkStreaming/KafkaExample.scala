@@ -1,5 +1,5 @@
-package com.sundogsoftware.sparkStreaming;
-/*// Kafka setup instructions for Windows: https://dzone.com/articles/running-apache-kafka-on-windows-os
+/*package com.sundogsoftware.sparkStreaming;
+// Kafka setup instructions for Windows: https://dzone.com/articles/running-apache-kafka-on-windows-os
 
 package just
 
@@ -20,7 +20,7 @@ object KafkaExample {
     setupLogging()
     val pattern = apacheLogPattern()
     val kafkaParams = Map("metadata.broker.list" -> "localhost:9092")
-    val topics = List("testLogs").toSet
+    val topics = List("locator").toSet
     val lines = KafkaUtils.createDirectStream[String, String, StringDecoder, StringDecoder](
       ssc, kafkaParams, topics).map(_._2)
     val requests = lines.map(x => {val matcher:Matcher = pattern.matcher(x); if (matcher.matches()) matcher.group(5)})

@@ -27,7 +27,8 @@ object KafkaConsumer {
       PreferConsistent,
       Subscribe[String, String](topics, kafkaParams))
     val df=stream.map((record => (record.key.getBytes, record.value)))
-    println(df.count()) 
+    //println(df.count()) 
+    df.print
     ssc.checkpoint("D:/temp/spark/twitter/checkpoint")
     ssc.start()
     ssc.awaitTermination()
