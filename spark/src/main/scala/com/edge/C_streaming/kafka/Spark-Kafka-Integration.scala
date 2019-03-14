@@ -1,15 +1,11 @@
-package com.edge.C_streaming
+/*package com.edge.C_streaming.kafka
 
 import org.apache.spark.sql.SparkSession
-import org.apache.spark.sql.functions.window
-import org.apache.spark.streaming.{Seconds, StreamingContext}
-import java.text.SimpleDateFormat
-import java.util.Locale
-import java.util.regex.{Matcher, Pattern}
 import com.edge.C_streaming.TCP.Utilities._
 import org.apache.log4j._
-import org.apache.spark.sql.functions.window
-import org.apache.spark.sql.{Row, SparkSession}
+import org.apache.spark.sql.{SparkSession
+//import org.apache.spark.annotation.InterfaceStability
+  
 object SparkKafkaIntegration {
   def main(abc: Array[String]) {
 
@@ -52,3 +48,4 @@ object SparkKafkaIntegration {
       .awaitTermination()
   }
 }
+*/

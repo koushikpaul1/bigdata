@@ -1,16 +1,17 @@
-package com.edge.C_streaming
+/*package com.edge.C_streaming.kafka
 // Kafka setup instructions for Windows: https://dzone.com/articles/running-apache-kafka-on-windows-os
 
+import kafka.serializer.StringDecoder
+import com.edge.C_streaming.TCP.Utilities._
 import org.apache.spark.SparkConf
-import org.apache.spark.streaming.{ Seconds, StreamingContext }
+import org.apache.spark.streaming.{Seconds, StreamingContext}
 import org.apache.spark.storage.StorageLevel
 import java.util.regex.Pattern
 import java.util.regex.Matcher
-import com.edge.C_streaming.TCP.Utilities._
-import org.apache.spark.streaming.kafka._
-import kafka.serializer.StringDecoder
+import org.apache.spark.streaming.kafka._ 
 
-/** Working example of listening for log data from Kafka's testLogs topic on port 9092. */
+
+*//** Working example of listening for log data from Kafka's testLogs topic on port 9092. *//*
 object KafkaExample {
   def main(args: Array[String]) {
     val ssc = new StreamingContext("local[*]", "KafkaExample", Seconds(2))
@@ -31,3 +32,4 @@ object KafkaExample {
   }
 }
 
+*/
