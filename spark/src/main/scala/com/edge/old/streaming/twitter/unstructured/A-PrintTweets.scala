@@ -1,8 +1,8 @@
-package com.edge.streaming.twitter.unstructured
+package com.edge.old.streaming.twitter.unstructured
 
 import org.apache.spark.streaming._
 import org.apache.spark.streaming.twitter._
-import com.edge.streaming.Utilities._
+import com.edge.old.streaming.Utilities._
 
 object PrintTweets {
   def main(args: Array[String]) {

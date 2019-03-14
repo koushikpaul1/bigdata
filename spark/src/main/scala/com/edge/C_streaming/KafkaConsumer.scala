@@ -1,4 +1,4 @@
-package com.edge.streaming
+package com.edge.C_streaming
 
 import org.apache.spark.streaming.{ Seconds, StreamingContext }
 import org.apache.kafka.clients.consumer.ConsumerRecord

@@ -1,4 +1,4 @@
-package com.edge.sql
+package com.edge.D_sql
 
 import com.edge.old.SparkSQL.mapper
 import org.apache.log4j.{Level, Logger}

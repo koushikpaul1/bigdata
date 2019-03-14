@@ -5,7 +5,7 @@ import org.apache.spark.SparkContext._
 import org.apache.spark.streaming._
 import org.apache.spark.streaming.twitter._
 import org.apache.spark.streaming.StreamingContext._
-import com.edge.streaming.Utilities._
+import com.edge.old.streaming.Utilities._
 
 /** Listens to a stream of Tweets and keeps track of the most popular
  *  hashtags over a 5 minute window.

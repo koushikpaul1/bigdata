@@ -9,7 +9,7 @@ import org.apache.spark.storage.StorageLevel
 import java.util.regex.Pattern
 import java.util.regex.Matcher
 
-import com.edge.streaming.Utilities._
+import com.edge.old.streaming.Utilities._
 
 import java.util.concurrent._
 import java.util.concurrent.atomic._

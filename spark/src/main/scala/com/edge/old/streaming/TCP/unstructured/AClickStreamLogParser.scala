@@ -1,23 +1,19 @@
-package just
+package com.edge.old.streaming.TCP.unstructured
 
-
-import org.apache.spark.SparkConf
-import org.apache.spark.streaming.{Seconds, StreamingContext}
-import org.apache.spark.storage.StorageLevel
-
-import java.util.regex.Pattern
 import java.util.regex.Matcher
 
+import org.apache.log4j.{Level, Logger}
+import org.apache.spark.storage.StorageLevel
+import org.apache.spark.streaming.{Seconds, StreamingContext}
 import com.edge.old.streaming.Utilities._
-
-/** Maintains top URL's visited over a 5 minute window, from a stream
- *  of Apache access logs on port 9999.
+/** Maintains top URL's visited over a 5 minute window, from a stream  *  of Apache access logs on port 9999.  *
+  * start ncat ot port 9999 feeding from a log file/folder =>ncat -kl 9999 < access_log.txt
  */
-object LogParser {
- 
+object AClickStreamLogParser {
+
   def main(args: Array[String]) {
     val ssc = new StreamingContext("local[*]", "LogParser", Seconds(1))
-    setupLogging()
+    Logger.getLogger("org").setLevel(Level.ERROR)
     val pattern = apacheLogPattern()
     // Create a socket stream to read log data published via netcat on port 9999 locally
     val lines = ssc.socketTextStream("127.0.0.1", 9999, StorageLevel.MEMORY_AND_DISK_SER)
@@ -31,5 +27,3 @@ object LogParser {
     ssc.awaitTermination()
   }
 }
-
-

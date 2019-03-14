@@ -6,7 +6,7 @@ import org.apache.spark.streaming._
 import org.apache.spark.streaming.twitter._
 import org.apache.spark.streaming.StreamingContext._
 import org.apache.log4j.Level
-import com.edge.streaming.Utilities._
+import com.edge.old.streaming.Utilities._
 
 /** Simple application to listen to a stream of Tweets and print them out */
 object PrintTweets {

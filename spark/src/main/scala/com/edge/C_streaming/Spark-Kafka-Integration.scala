@@ -1,4 +1,4 @@
-package com.edge.streaming
+package com.edge.C_streaming
 
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions.window
@@ -6,7 +6,7 @@ import org.apache.spark.streaming.{Seconds, StreamingContext}
 import java.text.SimpleDateFormat
 import java.util.Locale
 import java.util.regex.{Matcher, Pattern}
-import com.edge.streaming.Utilities._
+import com.edge.old.streaming.Utilities._
 import org.apache.log4j._
 import org.apache.spark.sql.functions.window
 import org.apache.spark.sql.{Row, SparkSession}
