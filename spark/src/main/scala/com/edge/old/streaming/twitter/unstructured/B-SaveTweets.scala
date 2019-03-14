@@ -5,7 +5,7 @@ import org.apache.spark.SparkContext._
 import org.apache.spark.streaming._
 import org.apache.spark.streaming.twitter._
 import org.apache.spark.streaming.StreamingContext._
-import com.edge.old.streaming.Utilities._
+import com.edge.C_streaming.TCP.Utilities._
 
 object SaveTweets {
   def main(args: Array[String]) {  
