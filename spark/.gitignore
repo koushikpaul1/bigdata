@@ -1,3 +1,5 @@
 .worksheet/
 .cache-main
 .cache-tests
+.cache*
+/bin/
