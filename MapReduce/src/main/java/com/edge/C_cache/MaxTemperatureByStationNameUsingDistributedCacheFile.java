@@ -22,7 +22,7 @@ import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 import org.apache.log4j.PropertyConfigurator;
 
-import com.edge.A_basic.WordCountToolRunner;
+import com.edge.A_basic.D_WordCountToolRunner;
 import com.edge.util.book.NcdcRecordParser;
 import com.edge.util.book.NcdcStationMetadata;
 
@@ -40,7 +40,7 @@ public class MaxTemperatureByStationNameUsingDistributedCacheFile extends Config
 	public int run(String[] args) throws Exception {
 		Configuration conf = this.getConf();
 		Job job = Job.getInstance(conf, "MaxTemperatureByStationNameUsingDistributedCacheFile");
-		job.setJarByClass(WordCountToolRunner.class);
+		job.setJarByClass(D_WordCountToolRunner.class);
 		FileInputFormat.addInputPath(job, new Path(args[0]));
 		Path outputPath = new Path(args[1]);
 		FileSystem fs = FileSystem.get(new URI(outputPath.toString()), conf);
