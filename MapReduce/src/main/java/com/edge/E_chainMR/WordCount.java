@@ -1,4 +1,4 @@
-package com.edge.chainMR;
+package com.edge.E_chainMR;
 
 
 /*
