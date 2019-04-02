@@ -26,7 +26,7 @@ import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 import org.apache.log4j.PropertyConfigurator;
 
-import com.edge.fileMerge.sequenceFile.WholeFileInputFormat;
+import com.edge.H_fileMerge.sequenceFile.WholeFileInputFormat;
 
 public class WordCountTemplate extends Configured implements Tool {
 	public static void main(String args[]) throws Exception {

@@ -64,49 +64,9 @@ like(England,Australia) to other partition so that work load one reducer that sh
 
 
 public class Sports extends Configured implements Tool {
-	/**
-	 * Mapper class generating key value pair of game,country as intermediate keys
-	 */
-	public static class PartitionerMap extends Mapper<LongWritable, Text, Text, Text> {
-		public void map(LongWritable key,Text value,Context context) throws IOException, InterruptedException {
-			String[] words = value.toString().split(" ");
-			try{
-			context.write(new Text(words[2]),new Text(words[1]));
-			}
-			catch(Exception e){
-				System.err.println(e);
-			}
-		}
-	}
-	/**
-	 * Each partition processed by different reducer tasks as defined in our custom partitioner
-	 */
-	public static class PartitionerReduce extends Reducer<Text,Text,Text,IntWritable> {
-		public void reduce(Text key,Iterable<Text>  values,Context context) throws IOException, InterruptedException {
-			int gameCount=0;
-			for(Text val:values){
-				gameCount++;
-			}
-			context.write(new Text(key),new IntWritable(gameCount));
-		}
-	}
-	/**
-	 * Our custom Partitioner class will divide the dataset into three partitions one with key as cricket and value as
-	 * india, second partition with key as cricket and value other than india, and third partition with game(key) other 
-	 * than cricket 
-	 */
-	/*public static class customPartitioner extends Partitioner<Text,Text>{
-		public int getPartition(Text key, Text value, int numReduceTasks){
-		if(numReduceTasks==0)
-			return 0;
-		if(key.equals(new Text("Cricket")) && !value.equals(new Text("India")))
-			return 0;
-		if(key.equals(new Text("Cricket")) && value.equals(new Text("India")))
-			return 1;
-		else
-			return 2;
-		}
-	}*/
+
+	
+	
 	public static void main(String[] args) throws Exception {
 		int res= ToolRunner.run(new Configuration(),new Sports(),args);
 		System.exit(res);
@@ -149,6 +109,42 @@ public class Sports extends Configured implements Tool {
 }
 
 
+/**
+ * Mapper class generating key value pair of game,country as intermediate keys
+ */
+ class PartitionerMap extends Mapper<LongWritable, Text, Text, Text> {
+	public void map(LongWritable key,Text value,Context context) throws IOException, InterruptedException {
+		String[] words = value.toString().split(" ");
+		try{
+		context.write(new Text(words[2]),new Text(words[1]));
+		}
+		catch(Exception e){
+			System.err.println(e);
+		}
+	}
+}
+/**
+ * Each partition processed by different reducer tasks as defined in our custom partitioner
+ */
+
+
+class PartitionerReduce extends Reducer<Text,Text,Text,IntWritable> {
+	public void reduce(Text key,Iterable<Text>  values,Context context) throws IOException, InterruptedException {
+		int gameCount=0;
+		for(Text val:values){
+			gameCount++;
+		}
+		context.write(new Text(key),new IntWritable(gameCount));
+	}
+}
+
+
+/**
+ * Our custom Partitioner class will divide the dataset into three partitions one with key as cricket and value as
+ * india, second partition with key as cricket and value other than india, and third partition with game(key) other 
+ * than cricket 
+ */
+
  class customPartitioner extends Partitioner<Text,Text>{
 	public int getPartition(Text key, Text value, int numReduceTasks){
 	if(numReduceTasks==0)
@@ -161,3 +157,4 @@ public class Sports extends Configured implements Tool {
 		return 2;
 	}
  }
+ 
