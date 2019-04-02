@@ -1,4 +1,4 @@
-package com.edge.F_sort;
+package com.edge.G_sort;
 
 import java.net.URI;
 
@@ -28,11 +28,11 @@ import org.apache.log4j.PropertyConfigurator;
 
 /**-D mapred.reduce.tasks=30  output/SortDataPreprocessor output/SortByTemperatureUsingHashPartitioner*/
 
-public class SortByTemperatureUsingHashPartitioner extends Configured implements Tool {
+public class B_SortByTemperatureUsingHashPartitioner extends Configured implements Tool {
 	public int run(String[] args) throws Exception {
 		Configuration conf = this.getConf();
 		Job job = Job.getInstance(conf, "SortByTemperatureUsingHashPartitioner");
-		job.setJarByClass(SortByTemperatureUsingHashPartitioner.class);
+		job.setJarByClass(B_SortByTemperatureUsingHashPartitioner.class);
 
 		job.setInputFormatClass(SequenceFileInputFormat.class);
 		job.setOutputKeyClass(IntWritable.class);
@@ -52,6 +52,6 @@ public class SortByTemperatureUsingHashPartitioner extends Configured implements
 	public static void main(String[] args) throws Exception {
 		String log4jConfPath = "log4j.properties";
 		PropertyConfigurator.configure(log4jConfPath);
-		System.exit(ToolRunner.run(new SortByTemperatureUsingHashPartitioner(), args));
+		System.exit(ToolRunner.run(new B_SortByTemperatureUsingHashPartitioner(), args));
 	}
 }

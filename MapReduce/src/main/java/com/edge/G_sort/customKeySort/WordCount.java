@@ -1,6 +1,9 @@
 package com.edge.G_sort.customKeySort;
 
+import java.net.URI;
+
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
@@ -24,10 +27,14 @@ public class WordCount {
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(IntWritable.class);
 		
-	
+		job.setSortComparatorClass(InverseKeyComparator.class);
 		
+		Path outputPath = new Path(args[1]);
+		FileSystem fs = FileSystem.get(new URI(outputPath.toString()), conf);
+		fs.delete(outputPath);
 		FileInputFormat.addInputPath(job, new Path(args[0]));
-		FileOutputFormat.setOutputPath(job, new Path(args[1]));
+		FileOutputFormat.setOutputPath(job, outputPath);
+		
 		System.exit(job.waitForCompletion(true) ? 0 : 1);
     }
     

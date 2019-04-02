@@ -1,4 +1,4 @@
-package com.edge.F_sort;
+package com.edge.G_sort;
 
 import java.net.URI;
 
@@ -29,14 +29,15 @@ import org.apache.log4j.PropertyConfigurator;
  * then it upload this as input for the next phase using distributed cache .
  */
 /**
- * -D mapred.reduce.tasks=30 output/SortDataPreprocessor output/SortByTemperatureUsingTotalOrderPartitioner
+ * -D mapred.reduce.tasks=30 input/misc/seqenceFilewithLongwritableKey
+ * output/SortByTemperatureUsingTotalOrderPartitioner
  */
-public class SortByTemperatureUsingTotalOrderPartitioner extends Configured implements Tool {
+public class C_SortByTemperatureUsingTotalOrderPartitioner extends Configured implements Tool {
 	public int run(String[] args) throws Exception {
 		
 		Configuration conf = getConf();
 		Job job = Job.getInstance(conf, "SortByTemperatureUsingTotalOrderPartitioner");
-		job.setJarByClass(SortByTemperatureUsingTotalOrderPartitioner.class);
+		job.setJarByClass(C_SortByTemperatureUsingTotalOrderPartitioner.class);
 		Path outputPath = new Path(args[1]);
 		FileSystem fs = FileSystem.get(new URI(outputPath.toString()), conf);
 		fs.delete(outputPath, true);
@@ -68,7 +69,7 @@ public class SortByTemperatureUsingTotalOrderPartitioner extends Configured impl
 	public static void main(String[] args) throws Exception {
 		String log4jConfPath = "log4j.properties";
 		PropertyConfigurator.configure(log4jConfPath);
-		int exitCode = ToolRunner.run(new SortByTemperatureUsingTotalOrderPartitioner(), args);
+		int exitCode = ToolRunner.run(new C_SortByTemperatureUsingTotalOrderPartitioner(), args);
 		System.exit(exitCode);
 	}
 }

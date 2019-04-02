@@ -1,4 +1,4 @@
-package com.edge.F_sort;
+package com.edge.G_sort;
 
 import java.io.IOException;
 import java.net.URI;
