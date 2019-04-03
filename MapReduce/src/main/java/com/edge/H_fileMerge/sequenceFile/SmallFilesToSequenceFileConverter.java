@@ -61,6 +61,8 @@ public class SmallFilesToSequenceFileConverter extends Configured implements Too
 	}
 }
 
+
+// The map  emits the content of the whole file as the value, and the file name as key.
  class SequenceFileMapper extends Mapper<NullWritable, BytesWritable, Text, BytesWritable> {
 	private Text filenameKey;
 

@@ -1,4 +1,4 @@
-package com.edge.G_sort;
+package com.edge.G_sort.usingSequenceFile;
 
 import java.net.URI;
 

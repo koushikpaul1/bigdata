@@ -1,4 +1,4 @@
-package com.edge.I_input.A_nline;
+package com.edge.I_input;
 //nline inputformat defines how many lines goes to a mapper in a whole, not for every single mal call.
 //If there are 1000 lines and mapreduce.input.lineinputformat.linespermap=50 then 20 map will be launched. It will still process one line at a time.
 /*With TextInputFormat and KeyValueTextInputFormat, each mapper receives a variable
@@ -21,7 +21,7 @@ import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
-public class NLine extends Configured implements Tool {
+public class C_NLine extends Configured implements Tool {
 
     
     public int run(String[] args) throws Exception {
@@ -34,7 +34,7 @@ public class NLine extends Configured implements Tool {
 
         Job job = new Job(getConf());
         job.setJobName("NLineInputFormat example");
-        job.setJarByClass(NLine.class);
+        job.setJarByClass(C_NLine.class);
 
         job.setInputFormatClass(NLineInputFormat.class);
         NLineInputFormat.addInputPath(job, new Path(args[0]));
@@ -51,7 +51,7 @@ public class NLine extends Configured implements Tool {
     }
 
     public static void main(String[] args) throws Exception {
-        int exitCode = ToolRunner.run(new Configuration(), new NLine(), args);
+        int exitCode = ToolRunner.run(new Configuration(), new C_NLine(), args);
         System.exit(exitCode);
     }
 }
