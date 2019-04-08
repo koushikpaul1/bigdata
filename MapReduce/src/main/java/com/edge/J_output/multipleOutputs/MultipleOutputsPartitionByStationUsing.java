@@ -19,7 +19,14 @@ import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
 import com.edge.util.book.NcdcRecordParser;
-
+/**MultipleOutputs allows you to write data to files whose names are derived from the
+output keys and values, or in fact from an arbitrary string. This allows each reducer (or
+mapper in a map-only job) to create more than a single file. Filenames are of the form
+name-m-nnnnn for map outputs and name-r-nnnnn for reduce outputs, where name is an
+arbitrary name that is set by the program and nnnnn is an integer designating the part
+number, starting from 00000.
+ * 
+ */
 /**Run As> Run Configurations..>
 * Project-> MapReduce,
 * MainClass-> com.edge.output.multipleOutputs.MultipleOutputsPartitionByStationUsing
