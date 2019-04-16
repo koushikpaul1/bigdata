@@ -60,7 +60,7 @@ object DF extends App {
     option("driver", "com.mysql.jdbc.Driver").
     option("dbtable", "employees").
     option("user", "root").
-    option("password", "root").
+    option("password", "root"). 
     load()
   println(dfMysqlemp.schema) //StructType(StructField(emp_no,IntegerType,true), StructField(birth_date,DateType,true), StructField(first_name,StringType,true), StructField(last_name,StringType,true), StructField(gender,StringType,true), StructField(hire_date,DateType,true))
   //dataframe_employees.show(10)
