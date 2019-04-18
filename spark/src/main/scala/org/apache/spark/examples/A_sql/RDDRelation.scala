@@ -16,7 +16,7 @@
  */
 
 // scalastyle:off println
-package org.apache.spark.examples.sql
+package org.apache.spark.examples.A_sql
 
 import org.apache.spark.sql.SaveMode
 // $example on:init_session$

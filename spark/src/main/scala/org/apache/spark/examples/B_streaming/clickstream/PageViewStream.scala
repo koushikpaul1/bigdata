@@ -16,9 +16,9 @@
  */
 
 // scalastyle:off println
-package org.apache.spark.examples.streaming.clickstream
+package org.apache.spark.examples.B_streaming.clickstream
 
-import org.apache.spark.examples.streaming.StreamingExamples
+import org.apache.spark.examples.B_streaming.StreamingExamples
 import org.apache.spark.streaming.{Seconds, StreamingContext}
 
 // scalastyle:off

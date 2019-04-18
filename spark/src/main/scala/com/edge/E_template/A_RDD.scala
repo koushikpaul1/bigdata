@@ -37,7 +37,7 @@ object RDD {
 
     //from data storage
     val textRDD1 = sc.textFile("input/udemy/spark-scala/ml-100k/u.data", 5)
-    val textRDD2 = spark.read.textFile("input/udemy/spark-scala/ml-100k/u.data").rdd
+    val textRDD2 = spark.read.textFile("input/udemy/spark-scala/ml-100k/u.data").rdd//from DF to RDD
     val jsonRDD = spark.read.json("path/of/json/file").rdd.persist() // if used persist it will not be recomputed again rather will be stored in mem and disk
   }
 

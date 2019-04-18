@@ -16,7 +16,7 @@
  */
 
 // scalastyle:off println
-package org.apache.spark.examples.sql.streaming
+package org.apache.spark.examples.A_sql.streaming
 
 import java.sql.Timestamp
 

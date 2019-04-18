@@ -16,7 +16,7 @@
  */
 
 // scalastyle:off println
-package org.apache.spark.examples.streaming.clickstream
+package org.apache.spark.examples.B_streaming.clickstream
 
 import java.io.PrintWriter
 import java.net.ServerSocket

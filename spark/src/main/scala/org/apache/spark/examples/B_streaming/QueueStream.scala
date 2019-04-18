@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.apache.spark.examples.streaming
+package org.apache.spark.examples.B_streaming
 
 import scala.collection.mutable.Queue
 

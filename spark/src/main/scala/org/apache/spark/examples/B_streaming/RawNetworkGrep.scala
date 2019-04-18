@@ -16,7 +16,7 @@
  */
 
 // scalastyle:off println
-package org.apache.spark.examples.streaming
+package org.apache.spark.examples.B_streaming
 
 import org.apache.spark.SparkConf
 import org.apache.spark.storage.StorageLevel

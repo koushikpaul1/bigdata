@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.spark.examples.sql
+package org.apache.spark.examples.A_sql
 
 // $example on:untyped_custom_aggregation$
 import org.apache.spark.sql.{Row, SparkSession}
