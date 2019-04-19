@@ -2,7 +2,6 @@ package com.edge.E_template
 
 import org.apache.log4j._
 import org.apache.spark.sql.SparkSession
-import scala.io.Source
 import org.apache.spark.sql.functions.{ min, max, avg }
 import org.apache.spark.sql.functions.{expr, col, column}
 
