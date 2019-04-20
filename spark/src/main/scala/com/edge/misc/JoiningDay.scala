@@ -50,8 +50,7 @@ object JoiningDay extends App {
 dataframe_customers.show()
   
   
-  
-  
+  dataframe_customers.where("customer_state=='TX'   AND customer_zipcode LIKE '770%%'")
   
   
   
