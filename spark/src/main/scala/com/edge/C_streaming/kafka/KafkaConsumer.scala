@@ -1,4 +1,4 @@
-package com.edge.C_streaming.kafka
+/*package com.edge.C_streaming.kafka
 
 import org.apache.spark.{ SparkConf, SparkContext }
 import org.apache.spark.sql.SQLContext
@@ -57,3 +57,4 @@ object KafkaConsumer {
   }
 }
 
+*/
