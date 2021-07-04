@@ -1,0 +1,21 @@
+reduceByKey(func)
+fold()
+aggregate()
+groupByKey
+countByKey
+combineByKey()
+repartition()
+coalesce()
+Spark objectFile
+RangePartitioner
+custom partitioner
+mapPartitions()
+select vs selectexpr
+diff REFRESH REPAIR
+accumulator
+reduceGroups((l, r)
+sampleByKey
+performence between groupbykey and reduce by key for wordcount
+repartitionAndSortWithinPartitions with an example
+Tasks and stages
+window for streaming/imp
